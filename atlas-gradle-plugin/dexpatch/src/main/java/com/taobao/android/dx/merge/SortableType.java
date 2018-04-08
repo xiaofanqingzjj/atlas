@@ -24,7 +24,7 @@ import java.util.Comparator;
  * Name and structure of a type. Used to order types such that each type is
  * preceded by its supertype and implemented interfaces.
  */
-final class SortableType {
+public final class SortableType {
     public static final Comparator<SortableType> NULLS_LAST_ORDER = new Comparator<SortableType>() {
         public int compare(SortableType a, SortableType b) {
             if (a == b) {
@@ -44,16 +44,22 @@ final class SortableType {
     };
 
     private final Dex dex;
+    private final IndexMap indexMap;
     private ClassDef classDef;
     private int depth = -1;
 
-    public SortableType(Dex dex, ClassDef classDef) {
+    public SortableType(Dex dex, IndexMap indexMap, ClassDef classDef) {
         this.dex = dex;
+        this.indexMap = indexMap;
         this.classDef = classDef;
     }
 
     public Dex getDex() {
         return dex;
+    }
+
+    public IndexMap getIndexMap() {
+        return indexMap;
     }
 
     public ClassDef getClassDef() {

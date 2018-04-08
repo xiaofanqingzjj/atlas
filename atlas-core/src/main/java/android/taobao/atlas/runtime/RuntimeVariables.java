@@ -209,7 +209,6 @@
 package android.taobao.atlas.runtime;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.Application;
 import android.app.Dialog;
 import android.content.Context;
@@ -218,15 +217,11 @@ import android.taobao.atlas.R;
 import android.taobao.atlas.framework.Atlas;
 import android.taobao.atlas.framework.FrameworkProperties;
 import android.taobao.atlas.runtime.dialog.DefaultProgress;
-import android.taobao.atlas.util.WrapperUtil;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.ViewGroup;
-import dalvik.system.DexFile;
-
+import java.io.Serializable;
 import java.lang.reflect.Field;
 
-public class RuntimeVariables {
+public class RuntimeVariables implements Serializable{
 
     public static Application         androidApplication;
 
@@ -234,19 +229,33 @@ public class RuntimeVariables {
 
     public static Resources           delegateResources;
 
+    public static Resources           originalResources;
+
     public static String              sRealApplicationName;
 
-    private static String              sCurrentProcessName = "";
+    public static String              sCurrentProcessName;
 
     public static boolean             safeMode = false;
 
     public static String              sInstalledVersionName;
+
+    public static long                sInstalledVersionCode;
+
+    public static long                sAppLastUpdateTime;
+
+    public static String              sApkPath;
 
     public static Atlas.ExternalBundleInstallReminder sReminder;
 
     public static Atlas.BundleVerifier sBundleVerifier;
 
     public static boolean             sCachePreVersionBundles = false;
+
+    /**
+     * apilevel >=23
+     */
+    public static ClassLoader sRawClassLoader;
+    public static Object      sDexLoadBooster;
 
     public static Dialog alertDialogUntilBundleProcessed(Activity activity,String bundleName){
         if (activity != null) {
@@ -275,56 +284,27 @@ public class RuntimeVariables {
         }
     }
 
-    private static Class versionKernalClass;
-
-    public static boolean isCurrentMaindexMatch(DexFile dexFile){
-        try {
-            versionKernalClass = dexFile.loadClass("android.taobao.atlas.framework.FrameworkProperties",ClassLoader.getSystemClassLoader());
-            Field field = versionKernalClass.getDeclaredField("version");
-            field.setAccessible(true);
-            String version = (String)field.get(versionKernalClass.newInstance());
-            String currentVersion = WrapperUtil.getPackageInfo(RuntimeVariables.androidApplication).versionName;
-            if(currentVersion!=null && version!=null && version.equals(currentVersion)){
-                return true;
-            }
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
-        return  false;
-    }
+    public static Class FrameworkPropertiesClazz;
 
     public static Object getFrameworkProperty(String fieldName){
-        if(versionKernalClass==null){
-            versionKernalClass = FrameworkProperties.class;
+        if(FrameworkPropertiesClazz==null){
+            FrameworkPropertiesClazz = FrameworkProperties.class;
         }
         try {
-            Field field = versionKernalClass.getDeclaredField(fieldName);
+            Field field = FrameworkPropertiesClazz.getDeclaredField(fieldName);
             field.setAccessible(true);
-            return field.get(versionKernalClass);
+            return field.get(FrameworkPropertiesClazz);
         }catch(Throwable e){
-//            e.printStackTrace();
             return null;
         }
     }
 
-    public static synchronized String getProcessName(Context context) {
-        if(TextUtils.isEmpty(sCurrentProcessName)) {
-            int pid = android.os.Process.myPid();
-            try {
-                ActivityManager mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-                for (ActivityManager.RunningAppProcessInfo appProcess : mActivityManager.getRunningAppProcesses()) {
-                    if (appProcess.pid == pid) {
-                        sCurrentProcessName =  appProcess.processName;
-                    }
-                }
-            } catch (Exception e) {
-            }
-        }
+    public static String getProcessName(Context context) {
         return sCurrentProcessName;
     }
 
     public static boolean shouldSyncUpdateInThisProcess(){
-        String processName = RuntimeVariables.getProcessName(RuntimeVariables.androidApplication);
+        String processName = RuntimeVariables.sCurrentProcessName;
         if(processName!=null &&
                 (processName.equals(RuntimeVariables.androidApplication.getPackageName()) ||
                         processName.toLowerCase().contains(":safemode")
@@ -332,6 +312,14 @@ public class RuntimeVariables {
             return true;
         }else{
             return false;
+        }
+    }
+
+    public static ClassLoader getRawClassLoader(){
+        if(sRawClassLoader!=null){
+            return sRawClassLoader;
+        }else{
+            return RuntimeVariables.class.getClassLoader();
         }
     }
 

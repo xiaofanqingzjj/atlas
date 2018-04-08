@@ -209,8 +209,6 @@ package com.taobao.android.apatch;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import com.taobao.android.APatchTool;
-import com.taobao.android.PatchMethodTool;
 import com.taobao.android.apatch.utils.Formater;
 import com.taobao.android.apatch.utils.SmaliDiffUtils;
 import com.taobao.android.apatch.utils.TypeGenUtil;
@@ -245,7 +243,6 @@ import java.util.jar.Manifest;
 
 
 /**
- * @author sanping.li@alipay.com
  */
 public class ApkPatch extends com.taobao.android.apatch.Build {
 
@@ -309,6 +306,7 @@ public class ApkPatch extends com.taobao.android.apatch.Build {
 
             currentTimeStamp = System.currentTimeMillis();
             DexDiffer dexDiffer = new DexDiffer(baseFiles, newFiles, 19);
+            dexDiffer.setTpatch(false);
             // 创建白名单过滤类
             if ((this.filterPath != null) && !(this.filterPath.equals(""))) {
                 dexDiffer.createFilter(this.filterPath);
@@ -325,16 +323,13 @@ public class ApkPatch extends com.taobao.android.apatch.Build {
             if (null != diffFile && null != diffJsonFile) {
                 info.writeToFile(name, diffFile, diffJsonFile);
             }
+
             //生成dex
-            classes = SmaliDiffUtils.buildCode(smaliDir, dexFile, info);
+            classes = SmaliDiffUtils.buildCode(smaliDir,dexFile, info);
             if (null == classes || classes.size() <= 0) {
                 return null;
             }
 
-            //是否修改dex
-            if (APatchTool.debug) {
-                PatchMethodTool.modifyMethod(dexFile.getAbsolutePath(), dexFile.getAbsolutePath(), true);
-            }
 
             File smaliDir2 = new File(aptchFolder, "smali2");
             if (!smaliDir2.exists()) {
@@ -346,6 +341,7 @@ public class ApkPatch extends com.taobao.android.apatch.Build {
                 throw new RuntimeException(e);
             }
             prepareClasses = buildPrepareClass(smaliDir2, newFiles, info);
+
             DexDiffInfo.release();
             build(outFile, dexFile);
             File file = release(aptchFolder, dexFile, outFile);
@@ -517,31 +513,8 @@ public class ApkPatch extends com.taobao.android.apatch.Build {
         main.putValue(name + "-Modified-Classes", Formater.dotStringList(modifiedClasses));
         main.putValue(name + "-Used-Classes", Formater.dotStringList(usedClasses));
         main.putValue(name + "-add-classes", Formater.dotStringList(addClasses));
+
         return manifest;
     }
 
-    public static void main(String[] args) throws IOException, PatchException {
-
-
-        String baseDir = "/Users/lilong/Downloads/tpatch/";
-        File from = new File(baseDir + "classes.dex");
-        File to = new File(baseDir + "classes1.dex");
-
-        File out = new File(baseDir);
-        // FileUtils.cleanDirectory(out);
-
-        String keystore = "/Users/seker/programs/debugsign/seker.keystore";
-        String password = "12345678";
-        String alias = "seker.keystore";
-        String entry = "12345678";
-        String name = "main";
-//        APatchTool.mappingFile = new File("/Users/lilong/Downloads/mapping.txt/target/proguard/full-mapping.txt");
-        ApkPatch apkPatch = new ApkPatch(from, to, name, out);
-        apkPatch.setDiffFile(new File(baseDir, "diff.txt"));
-        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-        for (StackTraceElement stackTraceElement : stackTraceElements) {
-            System.out.println(stackTraceElement.getClassName() + ":" + stackTraceElement.getMethodName());
-        }
-        apkPatch.doPatch();
-    }
 }

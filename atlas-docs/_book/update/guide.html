@@ -58,7 +58,7 @@
 
     
     
-    <link rel="prev" href="principle.html" />
+    <link rel="prev" href="dexpatch_use_guide.html" />
     
 
     </head>
@@ -211,6 +211,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.3" data-path="../guide-for-use/guide_for_compile.html">
+            
+                <a href="../guide-for-use/guide_for_compile.html">
+            
+                    
+                    awo编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../guide-for-use/bundleCommunicate.html">
+            
+                <a href="../guide-for-use/bundleCommunicate.html">
+            
+                    
+                    跨bundle的代码重用和通信
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -243,7 +269,33 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.2" data-path="guide.html">
+        <li class="chapter " data-level="1.4.2" data-path="dexpatch.html">
+            
+                <a href="dexpatch.html">
+            
+                    
+                    dexpatch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="dexpatch_use_guide.html">
+            
+                <a href="dexpatch_use_guide.html">
+            
+                    
+                    dexpatch使用教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4" data-path="guide.html">
             
                 <a href="guide.html">
             
@@ -275,12 +327,122 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../faq/help.html">
+        <li class="chapter " data-level="1.5.1" data-path="../faq/question.html">
+            
+                <a href="../faq/question.html">
+            
+                    
+                    问答
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../faq/help.html">
             
                 <a href="../faq/help.html">
             
                     
                     故障排查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../faq/variant.html">
+            
+                <a href="../faq/variant.html">
+            
+                    
+                    构建定制包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../faq/dynamic_failed_help.html">
+            
+                <a href="../faq/dynamic_failed_help.html">
+            
+                    
+                    动态部署失败排查指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    源码分析
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../code_read/atlas_gradle_apk/atlas_atlas_gradle_apk.html">
+            
+                <a href="../code_read/atlas_gradle_apk/atlas_atlas_gradle_apk.html">
+            
+                    
+                    Atlas之Gradle配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../code_read/atlas_start/atlas_start_1.html">
+            
+                <a href="../code_read/atlas_start/atlas_start_1.html">
+            
+                    
+                    Atlas之启动过程(一)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../code_read/atlas_start/atlas_start_2.html">
+            
+                <a href="../code_read/atlas_start/atlas_start_2.html">
+            
+                    
+                    Atlas之启动过程(二)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../code_read/atlas_bundle_load/atlas_bundle_load.html">
+            
+                <a href="../code_read/atlas_bundle_load/atlas_bundle_load.html">
+            
+                    
+                    Atlas之Bundle加载过程
             
                 </a>
             
@@ -340,9 +502,8 @@
                                 
                                 <h4 id="&#x52A8;&#x6001;&#x90E8;&#x7F72;&#x7684;&#x9650;&#x5236;">&#x52A8;&#x6001;&#x90E8;&#x7F72;&#x7684;&#x9650;&#x5236;</h4>
 <ol>
-<li><p><strong>AndroidManifest&#x4FDD;&#x6301;&#x4E0D;&#x53D8;</strong></p>
-<p>  &#x65B0;&#x589E;Activity&#x7684;&#x529F;&#x80FD;&#x6682;&#x65F6;&#x5173;&#x95ED;&#xFF08;&#x4E0B;&#x4E2A;&#x5927;&#x7248;&#x672C;&#x5F00;&#x653E;&#xFF09;
-  &#x6240;&#x4EE5;&#x65B0;&#x589E;Activity&#xFF0C;service&#x7B49;&#x5982;&#x679C;&#x6709;&#x9700;&#x6C42;&#x5728;&#x5927;&#x7248;&#x672C;&#x91CC;&#x9762;&#x5148;&#x9884;&#x7559;&#x89E3;&#x51B3;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x4FEE;&#x6539;theme &#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x8BBE;&#x7F6E;&#x6765;&#x89E3;&#x51B3;;receiver&#x53EF;&#x4EE5;&#x5148;&#x8003;&#x8651;&#x91C7;&#x7528;&#x52A8;&#x6001;&#x6CE8;&#x518C;&#x7684;&#x65B9;&#x5F0F;</p>
+<li><p><strong>AndroidManifest</strong>
+  &#x5DF2;&#x6709;Activity&#x7684;manifest&#x4FE1;&#x606F;&#x6682;&#x65F6;&#x4E0D;&#x652F;&#x6301;&#x66F4;&#x6539;</p>
 </li>
 <li><p><strong>window&#x7EA7;&#x522B;&#x4F7F;&#x7528;&#x7684;&#x8D44;&#x6E90;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;</strong>
  Activity&#x5207;&#x6362;&#x7684;&#x52A8;&#x753B;&#x6587;&#x4EF6;&#x3001;&#x901A;&#x77E5;&#x680F;&#x4F7F;&#x7528;&#x7684;logo&#x7B49;&#x5982;&#x679C;&#x4FEE;&#x6539;&#x4E86;&#x4E5F;&#x4E0D;&#x4F1A;&#x751F;&#x6548;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x95EE;&#x9898;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x8FD8;&#x662F;&#x539F;&#x6765;&#x7684;&#x6837;&#x5F0F;</p>
@@ -375,7 +536,7 @@
 
             
                 
-                <a href="principle.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 技术原理">
+                <a href="dexpatch_use_guide.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: dexpatch使用教程">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -387,7 +548,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"一些限制","level":"1.4.2","depth":2,"next":{"title":"FAQ","level":"1.5","depth":1,"ref":"","articles":[{"title":"故障排查","level":"1.5.1","depth":2,"path":"faq/help.md","ref":"faq/help.md","articles":[]}]},"previous":{"title":"技术原理","level":"1.4.1","depth":2,"path":"update/principle.md","ref":"update/principle.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"update/guide.md","mtime":"2017-03-06T04:59:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-08T08:38:45.939Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"一些限制","level":"1.4.4","depth":2,"next":{"title":"FAQ","level":"1.5","depth":1,"ref":"","articles":[{"title":"问答","level":"1.5.1","depth":2,"path":"faq/question.md","ref":"faq/question.md","articles":[]},{"title":"故障排查","level":"1.5.2","depth":2,"path":"faq/help.md","ref":"faq/help.md","articles":[]},{"title":"构建定制包","level":"1.5.3","depth":2,"path":"faq/variant.md","ref":"faq/variant.md","articles":[]},{"title":"动态部署失败排查指南","level":"1.5.4","depth":2,"path":"faq/dynamic_failed_help.md","ref":"faq/dynamic_failed_help.md","articles":[]}]},"previous":{"title":"dexpatch使用教程","level":"1.4.3","depth":2,"path":"update/dexpatch_use_guide.md","ref":"update/dexpatch_use_guide.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"update/guide.md","mtime":"2017-09-12T02:32:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-27T10:00:49.012Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

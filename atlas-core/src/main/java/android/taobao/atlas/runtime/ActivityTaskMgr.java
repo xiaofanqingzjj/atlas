@@ -209,6 +209,7 @@
 package android.taobao.atlas.runtime;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -218,13 +219,16 @@ import android.taobao.atlas.util.StringUtils;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ActivityTaskMgr {
 
     private List<WeakReference<Activity>> activityList = new ArrayList<WeakReference<Activity>>();
+    public  static Dialog sReminderDialog;
 
     private static ActivityTaskMgr       sInstance = null;
+
 
     private ActivityTaskMgr(){
     }
@@ -241,39 +245,8 @@ public class ActivityTaskMgr {
         return sInstance;
     }
 
-    public void handleActivityStack(String launchActivityName, Intent intent, int flag,
-                                    int launchMode) {
-        // Handle launchMode with singleTop, and flag with FLAG_ACTIVITY_SINGLE_TOP
-        String prevActivityName = null;
-        if (activityList.size() > 0) {
-            Activity lastActivity = activityList.get(activityList.size() - 1).get();
-            prevActivityName = lastActivity.getClass().getName();
-        }
-        
-        if (StringUtils.equals(prevActivityName, launchActivityName)
-            && (launchMode == ActivityInfo.LAUNCH_SINGLE_TOP || (flag & Intent.FLAG_ACTIVITY_SINGLE_TOP) == Intent.FLAG_ACTIVITY_SINGLE_TOP)) {
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        } else if (launchMode == ActivityInfo.LAUNCH_SINGLE_TASK || launchMode == ActivityInfo.LAUNCH_SINGLE_INSTANCE
-                   || (flag & Intent.FLAG_ACTIVITY_CLEAR_TOP) == Intent.FLAG_ACTIVITY_CLEAR_TOP) {
-            int i;
-            boolean isExist = false;
-            for (i = 0; i < activityList.size(); i++) {
-                WeakReference<Activity> ref = activityList.get(i);
-                if (ref!=null && ref.get()!=null && ref.get().getClass().getName().equals(launchActivityName)) {
-                    isExist = true;
-                    break;
-                }
-            }
-            if (isExist) {
-                for (WeakReference<Activity> act : activityList.subList(i + 1, activityList.size())) {
-                    if(act!=null && act.get()!=null) {
-                        act.get().finish();
-                    }
-                }
-                activityList.subList(i + 1, activityList.size()).clear();
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            }
-        }
+    public List<WeakReference<Activity>> getActivityList(){
+        return activityList;
     }
 
     public Activity peekTopActivity(){
@@ -291,6 +264,15 @@ public class ActivityTaskMgr {
     }
 
     public void popFromActivityStack(Activity activity) {
+        if(sReminderDialog!=null &&
+                (sReminderDialog.getContext()==activity ||
+                        (sReminderDialog.getContext() instanceof ContextWrapper && ((ContextWrapper)sReminderDialog.getContext()).getBaseContext()==activity))){
+            try{
+                sReminderDialog.dismiss();
+            }catch (Throwable e){}finally {
+                sReminderDialog = null;
+            }
+        }
         for(int x=0; x<activityList.size(); x++){
             WeakReference<Activity> ref = activityList.get(x);
             if(ref!=null && ref.get()!=null && ref.get()==activity){
@@ -353,16 +335,13 @@ public class ActivityTaskMgr {
                             if (wrapper != null && ((ContextWrapper)wrapper).getBaseContext() == activity) {
                                 Field mTintResourcesField = TintContextWrapper.getDeclaredField("mResources");
                                 mTintResourcesField.setAccessible(true);
-                                Field mTintThemeField = TintContextWrapper.getDeclaredField("mTheme");
-                                mTintThemeField.setAccessible(true);
-                                mTintThemeField.set(wrapper,null);
-                                mTintResourcesField.set(wrapper,null);
+                                mTintResourcesField.set(wrapper,RuntimeVariables.delegateResources);
                                 break;
                             }
                         }
                     }
                 } catch (Throwable e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                 }
 
             }

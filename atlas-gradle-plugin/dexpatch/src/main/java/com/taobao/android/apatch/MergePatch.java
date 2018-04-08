@@ -216,15 +216,12 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
-import java.util.Arrays;
-import java.util.List;
 import java.util.jar.Attributes;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 
 /**
- * @author sanping.li@alipay.com
  */
 public class MergePatch extends Build {
 
@@ -274,8 +271,8 @@ public class MergePatch extends Build {
             dexs[0] = dexA;
             dexs[1] = dexB;
 //            List<Dex>dexes = new ArrayList<>();
-            List<Dex>dexes = Arrays.asList(dexs);
-            DexMerger dexMerger = new DexMerger(dexes, CollisionPolicy.FAIL);
+//            List<Dex>dexes = Arrays.asList(dexs);
+            DexMerger dexMerger = new DexMerger(dexs, CollisionPolicy.FAIL);
             dexMerger.merge().writeTo(dexFile);
         }
     }
@@ -347,28 +344,11 @@ public class MergePatch extends Build {
             main.putValue(name + "-Used-Classes", attributes.getValue(name + "-Used-Classes"));
             main.putValue(name + "-add-classes", attributes.getValue(name + "-add-classes"));
 
+
         }
         main.putValue("From-File", fromBuffer.toString());
         main.putValue("To-File", toBuffer.toString());
     }
 
-    public static void main(String[] args) throws IOException, PatchException {
-
-        File tablauncher = new File("/Users/seker/log/temp/tablauncher.apatch");
-        File commonbiz = new File("/Users/seker/log/temp/commonbiz.apatch");
-
-        File[] files = new File[]{tablauncher, commonbiz};
-
-        File out = new File("/Users/seker/log/temp/apatch/");
-        FileUtils.cleanDirectory(out);
-
-        String keystore = "/Users/seker/programs/debugsign/seker.keystore";
-        String password = "12345678";
-        String alias = "seker.keystore";
-        String entry = "12345678";
-        String name = "main";
-
-        MergePatch mergePatch = new MergePatch(files, name, out);
-        mergePatch.doMerge();
     }
-}
+

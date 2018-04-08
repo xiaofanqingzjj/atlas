@@ -496,6 +496,7 @@ public final class DexFile {
          * add items happen before the calls to the sections that get
          * added to.
          */
+
         classDefs.prepare();
         classData.prepare();
         wordData.prepare();

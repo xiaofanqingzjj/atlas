@@ -16,6 +16,8 @@
 
 package com.taobao.android.dx.command;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
 
 /**
@@ -28,10 +30,21 @@ public class DxConsole {
     /**
      * Standard output stream. Links to {@code System.out} by default.
      */
-    public PrintStream out = System.out;
+    public static PrintStream out = System.out;
 
     /**
      * Error output stream. Links to {@code System.err} by default.
      */
-    public PrintStream err = System.err;
+    public static PrintStream err = System.err;
+
+    /**
+     * Output stream which prints to nowhere.
+     */
+    public static final PrintStream noop = new PrintStream(new OutputStream() {
+
+        @Override
+        public void write(int b) throws IOException {
+            // noop
+        }
+    });
 }

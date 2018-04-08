@@ -1,232 +1,224 @@
 /*
  *
  *
- *                                  Apache License
- *                            Version 2.0, January 2004
- *                         http://www.apache.org/licenses/
  *
- *    TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+ *                                   Apache License
+ *                             Version 2.0, January 2004
+ *                          http://www.apache.org/licenses/
  *
- *    1. Definitions.
+ *     TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
  *
- *       "License" shall mean the terms and conditions for use, reproduction,
- *       and distribution as defined by Sections 1 through 9 of this document.
+ *     1. Definitions.
  *
- *       "Licensor" shall mean the copyright owner or entity authorized by
- *       the copyright owner that is granting the License.
+ *        "License" shall mean the terms and conditions for use, reproduction,
+ *        and distribution as defined by Sections 1 through 9 of this document.
  *
- *       "Legal Entity" shall mean the union of the acting entity and all
- *       other entities that control, are controlled by, or are under common
- *       control with that entity. For the purposes of this definition,
- *       "control" means (i) the power, direct or indirect, to cause the
- *       direction or management of such entity, whether by contract or
- *       otherwise, or (ii) ownership of fifty percent (50%) or more of the
- *       outstanding shares, or (iii) beneficial ownership of such entity.
+ *        "Licensor" shall mean the copyright owner or entity authorized by
+ *        the copyright owner that is granting the License.
  *
- *       "You" (or "Your") shall mean an individual or Legal Entity
- *       exercising permissions granted by this License.
+ *        "Legal Entity" shall mean the union of the acting entity and all
+ *        other entities that control, are controlled by, or are under common
+ *        control with that entity. For the purposes of this definition,
+ *        "control" means (i) the power, direct or indirect, to cause the
+ *        direction or management of such entity, whether by contract or
+ *        otherwise, or (ii) ownership of fifty percent (50%) or more of the
+ *        outstanding shares, or (iii) beneficial ownership of such entity.
  *
- *       "Source" form shall mean the preferred form for making modifications,
- *       including but not limited to software source code, documentation
- *       source, and configuration files.
+ *        "You" (or "Your") shall mean an individual or Legal Entity
+ *        exercising permissions granted by this License.
  *
- *       "Object" form shall mean any form resulting from mechanical
- *       transformation or translation of a Source form, including but
- *       not limited to compiled object code, generated documentation,
- *       and conversions to other media types.
+ *        "Source" form shall mean the preferred form for making modifications,
+ *        including but not limited to software source code, documentation
+ *        source, and configuration files.
  *
- *       "Work" shall mean the work of authorship, whether in Source or
- *       Object form, made available under the License, as indicated by a
- *       copyright notice that is included in or attached to the work
- *       (an example is provided in the Appendix below).
+ *        "Object" form shall mean any form resulting from mechanical
+ *        transformation or translation of a Source form, including but
+ *        not limited to compiled object code, generated documentation,
+ *        and conversions to other media types.
  *
- *       "Derivative Works" shall mean any work, whether in Source or Object
- *       form, that is based on (or derived from) the Work and for which the
- *       editorial revisions, annotations, elaborations, or other modifications
- *       represent, as a whole, an original work of authorship. For the purposes
- *       of this License, Derivative Works shall not include works that remain
- *       separable from, or merely link (or bind by name) to the interfaces of,
- *       the Work and Derivative Works thereof.
+ *        "Work" shall mean the work of authorship, whether in Source or
+ *        Object form, made available under the License, as indicated by a
+ *        copyright notice that is included in or attached to the work
+ *        (an example is provided in the Appendix below).
  *
- *       "Contribution" shall mean any work of authorship, including
- *       the original version of the Work and any modifications or additions
- *       to that Work or Derivative Works thereof, that is intentionally
- *       submitted to Licensor for inclusion in the Work by the copyright owner
- *       or by an individual or Legal Entity authorized to submit on behalf of
- *       the copyright owner. For the purposes of this definition, "submitted"
- *       means any form of electronic, verbal, or written communication sent
- *       to the Licensor or its representatives, including but not limited to
- *       communication on electronic mailing lists, source code control systems,
- *       and issue tracking systems that are managed by, or on behalf of, the
- *       Licensor for the purpose of discussing and improving the Work, but
- *       excluding communication that is conspicuously marked or otherwise
- *       designated in writing by the copyright owner as "Not a Contribution."
+ *        "Derivative Works" shall mean any work, whether in Source or Object
+ *        form, that is based on (or derived from) the Work and for which the
+ *        editorial revisions, annotations, elaborations, or other modifications
+ *        represent, as a whole, an original work of authorship. For the purposes
+ *        of this License, Derivative Works shall not include works that remain
+ *        separable from, or merely link (or bind by name) to the interfaces of,
+ *        the Work and Derivative Works thereof.
  *
- *       "Contributor" shall mean Licensor and any individual or Legal Entity
- *       on behalf of whom a Contribution has been received by Licensor and
- *       subsequently incorporated within the Work.
+ *        "Contribution" shall mean any work of authorship, including
+ *        the original version of the Work and any modifications or additions
+ *        to that Work or Derivative Works thereof, that is intentionally
+ *        submitted to Licensor for inclusion in the Work by the copyright owner
+ *        or by an individual or Legal Entity authorized to submit on behalf of
+ *        the copyright owner. For the purposes of this definition, "submitted"
+ *        means any form of electronic, verbal, or written communication sent
+ *        to the Licensor or its representatives, including but not limited to
+ *        communication on electronic mailing lists, source code control systems,
+ *        and issue tracking systems that are managed by, or on behalf of, the
+ *        Licensor for the purpose of discussing and improving the Work, but
+ *        excluding communication that is conspicuously marked or otherwise
+ *        designated in writing by the copyright owner as "Not a Contribution."
  *
- *    2. Grant of Copyright License. Subject to the terms and conditions of
- *       this License, each Contributor hereby grants to You a perpetual,
- *       worldwide, non-exclusive, no-charge, royalty-free, irrevocable
- *       copyright license to reproduce, prepare Derivative Works of,
- *       publicly display, publicly perform, sublicense, and distribute the
- *       Work and such Derivative Works in Source or Object form.
+ *        "Contributor" shall mean Licensor and any individual or Legal Entity
+ *        on behalf of whom a Contribution has been received by Licensor and
+ *        subsequently incorporated within the Work.
  *
- *    3. Grant of Patent License. Subject to the terms and conditions of
- *       this License, each Contributor hereby grants to You a perpetual,
- *       worldwide, non-exclusive, no-charge, royalty-free, irrevocable
- *       (except as stated in this section) patent license to make, have made,
- *       use, offer to sell, sell, import, and otherwise transfer the Work,
- *       where such license applies only to those patent claims licensable
- *       by such Contributor that are necessarily infringed by their
- *       Contribution(s) alone or by combination of their Contribution(s)
- *       with the Work to which such Contribution(s) was submitted. If You
- *       institute patent litigation against any entity (including a
- *       cross-claim or counterclaim in a lawsuit) alleging that the Work
- *       or a Contribution incorporated within the Work constitutes direct
- *       or contributory patent infringement, then any patent licenses
- *       granted to You under this License for that Work shall terminate
- *       as of the date such litigation is filed.
+ *     2. Grant of Copyright License. Subject to the terms and conditions of
+ *        this License, each Contributor hereby grants to You a perpetual,
+ *        worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+ *        copyright license to reproduce, prepare Derivative Works of,
+ *        publicly display, publicly perform, sublicense, and distribute the
+ *        Work and such Derivative Works in Source or Object form.
  *
- *    4. Redistribution. You may reproduce and distribute copies of the
- *       Work or Derivative Works thereof in any medium, with or without
- *       modifications, and in Source or Object form, provided that You
- *       meet the following conditions:
+ *     3. Grant of Patent License. Subject to the terms and conditions of
+ *        this License, each Contributor hereby grants to You a perpetual,
+ *        worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+ *        (except as stated in this section) patent license to make, have made,
+ *        use, offer to sell, sell, import, and otherwise transfer the Work,
+ *        where such license applies only to those patent claims licensable
+ *        by such Contributor that are necessarily infringed by their
+ *        Contribution(s) alone or by combination of their Contribution(s)
+ *        with the Work to which such Contribution(s) was submitted. If You
+ *        institute patent litigation against any entity (including a
+ *        cross-claim or counterclaim in a lawsuit) alleging that the Work
+ *        or a Contribution incorporated within the Work constitutes direct
+ *        or contributory patent infringement, then any patent licenses
+ *        granted to You under this License for that Work shall terminate
+ *        as of the date such litigation is filed.
  *
- *       (a) You must give any other recipients of the Work or
- *           Derivative Works a copy of this License; and
+ *     4. Redistribution. You may reproduce and distribute copies of the
+ *        Work or Derivative Works thereof in any medium, with or without
+ *        modifications, and in Source or Object form, provided that You
+ *        meet the following conditions:
  *
- *       (b) You must cause any modified files to carry prominent notices
- *           stating that You changed the files; and
+ *        (a) You must give any other recipients of the Work or
+ *            Derivative Works a copy of this License; and
  *
- *       (c) You must retain, in the Source form of any Derivative Works
- *           that You distribute, all copyright, patent, trademark, and
- *           attribution notices from the Source form of the Work,
- *           excluding those notices that do not pertain to any part of
- *           the Derivative Works; and
+ *        (b) You must cause any modified files to carry prominent notices
+ *            stating that You changed the files; and
  *
- *       (d) If the Work includes a "NOTICE" text file as part of its
- *           distribution, then any Derivative Works that You distribute must
- *           include a readable copy of the attribution notices contained
- *           within such NOTICE file, excluding those notices that do not
- *           pertain to any part of the Derivative Works, in at least one
- *           of the following places: within a NOTICE text file distributed
- *           as part of the Derivative Works; within the Source form or
- *           documentation, if provided along with the Derivative Works; or,
- *           within a display generated by the Derivative Works, if and
- *           wherever such third-party notices normally appear. The contents
- *           of the NOTICE file are for informational purposes only and
- *           do not modify the License. You may add Your own attribution
- *           notices within Derivative Works that You distribute, alongside
- *           or as an addendum to the NOTICE text from the Work, provided
- *           that such additional attribution notices cannot be construed
- *           as modifying the License.
+ *        (c) You must retain, in the Source form of any Derivative Works
+ *            that You distribute, all copyright, patent, trademark, and
+ *            attribution notices from the Source form of the Work,
+ *            excluding those notices that do not pertain to any part of
+ *            the Derivative Works; and
  *
- *       You may add Your own copyright statement to Your modifications and
- *       may provide additional or different license terms and conditions
- *       for use, reproduction, or distribution of Your modifications, or
- *       for any such Derivative Works as a whole, provided Your use,
- *       reproduction, and distribution of the Work otherwise complies with
- *       the conditions stated in this License.
+ *        (d) If the Work includes a "NOTICE" text file as part of its
+ *            distribution, then any Derivative Works that You distribute must
+ *            include a readable copy of the attribution notices contained
+ *            within such NOTICE file, excluding those notices that do not
+ *            pertain to any part of the Derivative Works, in at least one
+ *            of the following places: within a NOTICE text file distributed
+ *            as part of the Derivative Works; within the Source form or
+ *            documentation, if provided along with the Derivative Works; or,
+ *            within a display generated by the Derivative Works, if and
+ *            wherever such third-party notices normally appear. The contents
+ *            of the NOTICE file are for informational purposes only and
+ *            do not modify the License. You may add Your own attribution
+ *            notices within Derivative Works that You distribute, alongside
+ *            or as an addendum to the NOTICE text from the Work, provided
+ *            that such additional attribution notices cannot be construed
+ *            as modifying the License.
  *
- *    5. Submission of Contributions. Unless You explicitly state otherwise,
- *       any Contribution intentionally submitted for inclusion in the Work
- *       by You to the Licensor shall be under the terms and conditions of
- *       this License, without any additional terms or conditions.
- *       Notwithstanding the above, nothing herein shall supersede or modify
- *       the terms of any separate license agreement you may have executed
- *       with Licensor regarding such Contributions.
+ *        You may add Your own copyright statement to Your modifications and
+ *        may provide additional or different license terms and conditions
+ *        for use, reproduction, or distribution of Your modifications, or
+ *        for any such Derivative Works as a whole, provided Your use,
+ *        reproduction, and distribution of the Work otherwise complies with
+ *        the conditions stated in this License.
  *
- *    6. Trademarks. This License does not grant permission to use the trade
- *       names, trademarks, service marks, or product names of the Licensor,
- *       except as required for reasonable and customary use in describing the
- *       origin of the Work and reproducing the content of the NOTICE file.
+ *     5. Submission of Contributions. Unless You explicitly state otherwise,
+ *        any Contribution intentionally submitted for inclusion in the Work
+ *        by You to the Licensor shall be under the terms and conditions of
+ *        this License, without any additional terms or conditions.
+ *        Notwithstanding the above, nothing herein shall supersede or modify
+ *        the terms of any separate license agreement you may have executed
+ *        with Licensor regarding such Contributions.
  *
- *    7. Disclaimer of Warranty. Unless required by applicable law or
- *       agreed to in writing, Licensor provides the Work (and each
- *       Contributor provides its Contributions) on an "AS IS" BASIS,
- *       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- *       implied, including, without limitation, any warranties or conditions
- *       of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
- *       PARTICULAR PURPOSE. You are solely responsible for determining the
- *       appropriateness of using or redistributing the Work and assume any
- *       risks associated with Your exercise of permissions under this License.
+ *     6. Trademarks. This License does not grant permission to use the trade
+ *        names, trademarks, service marks, or product names of the Licensor,
+ *        except as required for reasonable and customary use in describing the
+ *        origin of the Work and reproducing the content of the NOTICE file.
  *
- *    8. Limitation of Liability. In no event and under no legal theory,
- *       whether in tort (including negligence), contract, or otherwise,
- *       unless required by applicable law (such as deliberate and grossly
- *       negligent acts) or agreed to in writing, shall any Contributor be
- *       liable to You for damages, including any direct, indirect, special,
- *       incidental, or consequential damages of any character arising as a
- *       result of this License or out of the use or inability to use the
- *       Work (including but not limited to damages for loss of goodwill,
- *       work stoppage, computer failure or malfunction, or any and all
- *       other commercial damages or losses), even if such Contributor
- *       has been advised of the possibility of such damages.
+ *     7. Disclaimer of Warranty. Unless required by applicable law or
+ *        agreed to in writing, Licensor provides the Work (and each
+ *        Contributor provides its Contributions) on an "AS IS" BASIS,
+ *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *        implied, including, without limitation, any warranties or conditions
+ *        of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+ *        PARTICULAR PURPOSE. You are solely responsible for determining the
+ *        appropriateness of using or redistributing the Work and assume any
+ *        risks associated with Your exercise of permissions under this License.
  *
- *    9. Accepting Warranty or Additional Liability. While redistributing
- *       the Work or Derivative Works thereof, You may choose to offer,
- *       and charge a fee for, acceptance of support, warranty, indemnity,
- *       or other liability obligations and/or rights consistent with this
- *       License. However, in accepting such obligations, You may act only
- *       on Your own behalf and on Your sole responsibility, not on behalf
- *       of any other Contributor, and only if You agree to indemnify,
- *       defend, and hold each Contributor harmless for any liability
- *       incurred by, or claims asserted against, such Contributor by reason
- *       of your accepting any such warranty or additional liability.
+ *     8. Limitation of Liability. In no event and under no legal theory,
+ *        whether in tort (including negligence), contract, or otherwise,
+ *        unless required by applicable law (such as deliberate and grossly
+ *        negligent acts) or agreed to in writing, shall any Contributor be
+ *        liable to You for damages, including any direct, indirect, special,
+ *        incidental, or consequential damages of any character arising as a
+ *        result of this License or out of the use or inability to use the
+ *        Work (including but not limited to damages for loss of goodwill,
+ *        work stoppage, computer failure or malfunction, or any and all
+ *        other commercial damages or losses), even if such Contributor
+ *        has been advised of the possibility of such damages.
  *
- *    END OF TERMS AND CONDITIONS
+ *     9. Accepting Warranty or Additional Liability. While redistributing
+ *        the Work or Derivative Works thereof, You may choose to offer,
+ *        and charge a fee for, acceptance of support, warranty, indemnity,
+ *        or other liability obligations and/or rights consistent with this
+ *        License. However, in accepting such obligations, You may act only
+ *        on Your own behalf and on Your sole responsibility, not on behalf
+ *        of any other Contributor, and only if You agree to indemnify,
+ *        defend, and hold each Contributor harmless for any liability
+ *        incurred by, or claims asserted against, such Contributor by reason
+ *        of your accepting any such warranty or additional liability.
  *
- *    APPENDIX: How to apply the Apache License to your work.
+ *     END OF TERMS AND CONDITIONS
  *
- *       To apply the Apache License to your work, attach the following
- *       boilerplate notice, with the fields enclosed by brackets "[]"
- *       replaced with your own identifying information. (Don't include
- *       the brackets!)  The text should be enclosed in the appropriate
- *       comment syntax for the file format. We also recommend that a
- *       file or class name and description of purpose be included on the
- *       same "printed page" as the copyright notice for easier
- *       identification within third-party archives.
+ *     APPENDIX: How to apply the Apache License to your work.
  *
- *    Copyright 2016 Alibaba Group
+ *        To apply the Apache License to your work, attach the following
+ *        boilerplate notice, with the fields enclosed by brackets "[]"
+ *        replaced with your own identifying information. (Don't include
+ *        the brackets!)  The text should be enclosed in the appropriate
+ *        comment syntax for the file format. We also recommend that a
+ *        file or class name and description of purpose be included on the
+ *        same "printed page" as the copyright notice for easier
+ *        identification within third-party archives.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ *     Copyright 2016 Alibaba Group
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *     Licensed under the Apache License, Version 2.0 (the "License");
+ *     you may not use this file except in compliance with the License.
+ *     You may obtain a copy of the License at
  *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *     Unless required by applicable law or agreed to in writing, software
+ *     distributed under the License is distributed on an "AS IS" BASIS,
+ *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *     See the License for the specific language governing permissions and
+ *     limitations under the License.
  *
  *
  */
 
 package com.taobao.android.builder.tools.classinject;
 
+import com.alibaba.fastjson.JSON;
+import javassist.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.maven.wagon.PathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.JarOutputStream;
@@ -234,19 +226,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipOutputStream;
 
-import javassist.CannotCompileException;
-import javassist.ClassPool;
-import javassist.CtClass;
-import javassist.CtConstructor;
-import javassist.CtField;
-import javassist.CtMethod;
-import javassist.CtNewMethod;
-import javassist.Modifier;
-import javassist.NotFoundException;
-
 /**
- * 通过Javassist进行代码注入操作
- * Created by shenghua.nish on 2015-10-22 下午6:35.
+ * Code injection is done through Javassist
+ * Created by shenghua.nish on 2015-10-22 Again in the afternoon.
  */
 public class CodeInjectByJavassist {
 
@@ -257,80 +239,104 @@ public class CodeInjectByJavassist {
     public synchronized static byte[] inject(ClassPool pool,
                                              String className,
                                              InjectParam injectParam) throws Exception {
-        try {
-            CtClass cc = pool.get(className);
-            cc.defrost();
-            if (className.equalsIgnoreCase("android.taobao.atlas.framework.FrameworkProperties") ||
-                    className.equalsIgnoreCase("android.taobao.atlas.version.VersionKernal")) {
 
-                if (StringUtils.isNotBlank(injectParam.version)) {
-                    CtClass ctClass = pool.get("java.lang.String");
-                    CtField ctField = new CtField(ctClass, "version", cc);
-                    ctField.setModifiers(Modifier.PRIVATE);
-                    CtMethod ctMethod = CtNewMethod.getter("getVersion", ctField);
-                    ctMethod.setModifiers(Modifier.PUBLIC);
-                    CtField.Initializer initializer = CtField.Initializer.constant(injectParam.version);
-                    cc.addField(ctField, initializer);
-                    cc.addMethod(ctMethod);
-                    logger.info(
-                            "[android.taobao.atlas.framework.FrameworkProperties] inject version " +
-                                    injectParam.version);
+        CtClass cc = pool.get(className);
+        cc.defrost();
+        if (className.equalsIgnoreCase("android.taobao.atlas.framework.FrameworkProperties") ||
+            className.equalsIgnoreCase("android.taobao.atlas.version.VersionKernal")) {
+
+            if (StringUtils.isNotBlank(injectParam.version)) {
+                CtClass ctClass = pool.get("java.lang.String");
+                CtField ctField = new CtField(ctClass, "version", cc);
+                ctField.setModifiers(Modifier.PRIVATE);
+                CtMethod ctMethod = CtNewMethod.getter("getVersion", ctField);
+                ctMethod.setModifiers(Modifier.PUBLIC);
+                CtField.Initializer initializer = CtField.Initializer.constant(injectParam.version);
+                try {
+                    cc.removeField(ctField);
+
+                }catch (Exception e){
+
                 }
+                cc.addField(ctField, initializer);
+                try {
+                    cc.removeMethod(ctMethod);
+                }catch (Exception e){
 
-                addField(pool, cc, "bundleInfo", injectParam.bundleInfo);
-                addField(pool, cc, "autoStartBundles", injectParam.autoStartBundles);
-                addField(pool, cc, "preLaunch", injectParam.preLaunch);
-                addField(pool, cc, "group", injectParam.group);
-                addField(pool, cc, "outApp", String.valueOf(injectParam.outApp));
+                }
+                cc.addMethod(ctMethod);
+                logger.info(
+                    "[android.taobao.atlas.framework.FrameworkProperties] inject version " +
+                        injectParam.version);
             }
 
-            ClazzInjecter clazzInjecter = sInjecterMap.get(className);
-            if (null != clazzInjecter) {
-                Map<String, String> stringMap = clazzInjecter.getInjectFields();
-                if (!stringMap.isEmpty()) {
-                    for (String key : stringMap.keySet()) {
-                        addField(pool, cc, key, stringMap.get(key));
-                    }
-                }
+            addField(pool, cc, "bundleInfo", injectParam.bundleInfo);
+            addField(pool, cc, "autoStartBundles", injectParam.autoStartBundles);
+            addField(pool, cc, "preLaunch", injectParam.preLaunch);
+            addField(pool, cc, "group", injectParam.group);
+            addField(pool, cc, "outApp", String.valueOf(injectParam.outApp));
+
+            if (null != injectParam.outputFile) {
+                Map output = new HashMap();
+                output.put("bundleInfo", JSON.parseArray(injectParam.bundleInfo));
+                output.put("autoStartBundles", injectParam.autoStartBundles);
+                output.put("preLaunch", injectParam.preLaunch);
+                output.put("group", injectParam.group);
+                output.put("outApp", injectParam.outApp);
+                output.put("unit_tag", injectParam.unit_tag);
+                FileUtils.write(injectParam.outputFile, JSON.toJSONString(output, true));
             }
 
-            if (!injectParam.removePreverify) {
-                Collection<String> refClasses = cc.getRefClasses();
-                if (refClasses.contains("com.taobao.verify.Verifier")) {
-                    return cc.toBytecode();
-                }
-                boolean flag = false;
-                if (className.equalsIgnoreCase("com.ut.mini.crashhandler.IUTCrashCaughtListner")) {
-                    flag = true;
-                }
+        }
 
-                if (cc.isInterface()) {
+        ClazzInjecter clazzInjecter = sInjecterMap.get(className);
+        if (null != clazzInjecter) {
+            Map<String, String> stringMap = clazzInjecter.getInjectFields();
+            if (!stringMap.isEmpty()) {
+                for (String key : stringMap.keySet()) {
+                    addField(pool, cc, key, stringMap.get(key));
+                }
+            }
+        }
+
+        if (!injectParam.removePreverify) {
+            Collection<String> refClasses = cc.getRefClasses();
+            if (refClasses.contains("com.taobao.verify.Verifier")) {
+                return cc.toBytecode();
+            }
+            boolean flag = false;
+            if (className.equalsIgnoreCase("com.ut.mini.crashhandler.IUTCrashCaughtListner")) {
+                flag = true;
+            }
+
+            if (cc.isInterface()) {
+                final CtClass defClass = pool.get(Class.class.getName());
+                CtField defField = new CtField(defClass, "_inject_field__", cc);
+                defField.setModifiers(Modifier.STATIC | Modifier.PUBLIC | Modifier.FINAL);
+                cc.addField(defField,
+                            CtField.Initializer.byExpr(
+                                "Boolean.TRUE.booleanValue()?java.lang.String.class:com.taobao.verify.Verifier"
+                                    + ".class;"));
+            } else {
+                CtConstructor[] ctConstructors = cc.getDeclaredConstructors();
+                if (null != ctConstructors && ctConstructors.length > 0) {
+                    CtConstructor ctConstructor = ctConstructors[0];
+                    ctConstructor.insertBeforeBody(
+                        "if(Boolean.FALSE.booleanValue()){java.lang.String.valueOf(com.taobao.verify.Verifier"
+                            + ".class);}");
+                } else {
                     final CtClass defClass = pool.get(Class.class.getName());
                     CtField defField = new CtField(defClass, "_inject_field__", cc);
-                    defField.setModifiers(Modifier.STATIC | Modifier.PUBLIC | Modifier.FINAL);
+                    defField.setModifiers(Modifier.STATIC);
                     cc.addField(defField,
                                 CtField.Initializer.byExpr(
-                                        "Boolean.TRUE.booleanValue()?java.lang.String.class:com.taobao.verify.Verifier.class;"));
-                } else {
-                    CtConstructor[] ctConstructors = cc.getDeclaredConstructors();
-                    if (null != ctConstructors && ctConstructors.length > 0) {
-                        CtConstructor ctConstructor = ctConstructors[0];
-                        ctConstructor.insertBeforeBody(
-                                "if(Boolean.FALSE.booleanValue()){java.lang.String.valueOf(com.taobao.verify.Verifier.class);}");
-                    } else {
-                        final CtClass defClass = pool.get(Class.class.getName());
-                        CtField defField = new CtField(defClass, "_inject_field__", cc);
-                        defField.setModifiers(Modifier.STATIC);
-                        cc.addField(defField,
-                                    CtField.Initializer.byExpr(
-                                            "Boolean.TRUE.booleanValue()?java.lang.String.class:com.taobao.verify.Verifier.class;"));
-                    }
+                                    "Boolean.TRUE.booleanValue()?java.lang.String.class:com.taobao.verify"
+                                        + ".Verifier.class;"));
                 }
             }
-            return cc.toBytecode();
-        } catch (Throwable e) {
-            throw new Exception("[InjectError]:" + className + ",reason:" + e.getMessage());
         }
+        return cc.toBytecode();
+
     }
 
     private static void addField(ClassPool pool,
@@ -352,7 +358,7 @@ public class CodeInjectByJavassist {
     }
 
     /**
-     * 对指定的folder中的class文件进行注入替换操作
+     * Inject replacement operations for class files in the specified folder
      *
      * @param pool
      * @param folder
@@ -366,36 +372,28 @@ public class CodeInjectByJavassist {
     public static List<String> injectFolder(ClassPool pool,
                                             File folder,
                                             File outFolder,
-                                            InjectParam injectParam) {
+                                            InjectParam injectParam) throws Exception {
         List<String> errorFiles = new ArrayList<String>();
         if (folder.exists() && folder.isDirectory()) {
-            Collection<File> classFiles = FileUtils.listFiles(folder, new String[]{"class"}, true);
+            Collection<File> classFiles = FileUtils.listFiles(folder, new String[] {"class"}, true);
             for (File classFile : classFiles) {
-                String className = PathUtils.toRelative(folder, classFile.getAbsolutePath());
+                String className = toRelative(folder, classFile.getAbsolutePath());
                 File outClassFile = new File(outFolder, className);
                 outClassFile.getParentFile().mkdirs();
                 className = StringUtils.replace(className, File.separator, ".");
                 className = className.substring(0, className.length() - 6);
                 byte[] codes;
-                try {
-                    codes = inject(pool, className, injectParam);
-                    FileUtils.writeByteArrayToFile(outClassFile, codes);
-                } catch (Throwable e) {
-                    System.err.println(e.getMessage());
-                    // 发现异常不做处理，使用原先的类
-                    try {
-                        FileUtils.copyFile(classFile, outClassFile);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-                }
+
+                codes = inject(pool, className, injectParam);
+                FileUtils.writeByteArrayToFile(outClassFile, codes);
+
             }
         }
         return errorFiles;
     }
 
     /**
-     * 对于指定的jar包进行代码的注入
+     * The injection of code for the specified jar package
      *
      * @param inJar
      * @param outJar
@@ -406,7 +404,7 @@ public class CodeInjectByJavassist {
     public static List<String> inject(ClassPool pool,
                                       File inJar,
                                       File outJar,
-                                      InjectParam injectParam) throws IOException {
+                                      InjectParam injectParam) throws Exception {
         List<String> errorFiles = new ArrayList<String>();
         JarFile jarFile = newJarFile(inJar);
 
@@ -427,17 +425,11 @@ public class CodeInjectByJavassist {
                 IOUtils.closeQuietly(inputStream);
             } else {
                 byte[] codes;
-                try {
-                    codes = inject(pool, className, injectParam);
-                    InputStream classInstream = new ByteArrayInputStream(codes);
-                    copyStreamToJar(classInstream, jos, name, jarEntry.getTime(), jarEntry);
-                } catch (Throwable e) { // 如果出现异常，则原样写入
-                    System.err.println(e.getMessage());
-                    InputStream inputStream = jarFile.getInputStream(jarEntry);
-                    copyStreamToJar(inputStream, jos, name, jarEntry.getTime(), jarEntry);
-                    IOUtils.closeQuietly(inputStream);
-                    errorFiles.add(className);
-                }
+
+                codes = inject(pool, className, injectParam);
+                InputStream classInstream = new ByteArrayInputStream(codes);
+                copyStreamToJar(classInstream, jos, name, jarEntry.getTime(), jarEntry);
+
             }
         }
         jarFile.close();

@@ -3,6 +3,7 @@ package com.taobao.atlas.update.util;
 import android.taobao.atlas.bundleInfo.AtlasBundleInfoManager;
 import android.taobao.atlas.bundleInfo.BundleListing;
 import android.taobao.atlas.framework.Atlas;
+import android.taobao.atlas.framework.Framework;
 import android.taobao.atlas.runtime.RuntimeVariables;
 import android.taobao.atlas.versionInfo.BaselineInfoManager;
 import android.util.Pair;
@@ -21,10 +22,10 @@ import java.util.Map;
 
 public class PatchInstaller {
 
-    private Map<String, Pair> mergeOutputs;
+    private Map<String, Pair<String,UpdateInfo.Item>> mergeOutputs;
     private UpdateInfo updateInfo;
 
-    public PatchInstaller(Map<String, Pair> mergeOutputs, UpdateInfo updateInfo) {
+    public PatchInstaller(Map<String, Pair<String,UpdateInfo.Item>> mergeOutputs, UpdateInfo updateInfo) {
         this.mergeOutputs = mergeOutputs;
         this.updateInfo = updateInfo;
     }
@@ -35,85 +36,60 @@ public class PatchInstaller {
         if (mergeOutputs.isEmpty()) {
             throw new BundleException("merge bundles is empty");
         }
-//
-//        buildBundleInventory(updateInfo);
-//
-//        File fileDir = new File(RuntimeVariables.androidApplication.getFilesDir(), "bundlelisting");
-//        String fileName = String.format("%s%s.json", new Object[]{"bundleInfo-", updateInfo.dexPatchVersion>0 ? updateInfo.dexPatchVersion+"" : updateInfo.updateVersion});
-//
-//        if (!fileDir.exists() || !new File(fileDir, fileName).exists()) {
-//            throw new BundleException("bundle file list is empty");
-//        }
 
         Iterator entries = mergeOutputs.entrySet().iterator();
-        String[] packageName = new String[mergeOutputs.size()];
-        File[] bundleFilePath = new File[mergeOutputs.size()];
-        String[] versions = new String[mergeOutputs.size()];
-        int index = 0;
+        List<String> bundleNameList = new ArrayList<>();
+        List<File> bundleFilePathList = new ArrayList<>();
+        List<String> upgradeVersions = new ArrayList<>();
+        List<Long> dexPatchVersions = new ArrayList<>();
         while (entries.hasNext()) {
             Map.Entry entry = (Map.Entry) entries.next();
-            packageName[index] = (String) entry.getKey();
-            Pair<String, String> bundlePair = (Pair<String, String>) entry.getValue();
-            bundleFilePath[index] = new File(bundlePair.first);
-            if (!bundleFilePath[index].exists()) {
-                throw new BundleException("bundle input is wrong");
-            }
-            versions[index] = bundlePair.second;
-            index++;
-        }
-
-        List<String> realInstalledBundle = Arrays.asList(packageName);
-        for (UpdateInfo.Item bundle : updateInfo.updateBundles) {
-            if (!realInstalledBundle.contains(bundle.name) && AtlasBundleInfoManager.instance().isInternalBundle(bundle.name)) {
-                throw new BundleException("bundle  " + bundle.name + " is error");
-            }
-        }
-
-
-        Atlas.getInstance().installOrUpdate(packageName, bundleFilePath, versions,updateInfo.dexPatchVersion);
-
-
-        List<String> rollbackBundles = new ArrayList<String>();
-
-        for (UpdateInfo.Item item : updateInfo.updateBundles) {
-            if (item != null) {
-                String bundleCodeVersion = item.version.split("@")[1];
-                if (bundleCodeVersion.trim().equals("-1")) {
-                    rollbackBundles.add(item.name);
+            bundleNameList.add((String) entry.getKey());
+            Pair<String, UpdateInfo.Item> bundlePair = (Pair<String, UpdateInfo.Item>) entry.getValue();
+            if(bundlePair.second.reset){
+                if (!updateInfo.dexPatch) {
+                    upgradeVersions.add("-1");
+                } else {
+                    dexPatchVersions.add(Long.valueOf(-1));
                 }
-
+            }else {
+                File bundleFile = new File(bundlePair.first);
+                bundleFilePathList.add(bundleFile);
+                if (!bundleFile.exists()) {
+                    throw new BundleException("bundle input is wrong : " + bundleFilePathList);
+                }
+                if (!updateInfo.dexPatch) {
+                    upgradeVersions.add(bundlePair.second.unitTag);
+                } else {
+                    dexPatchVersions.add(bundlePair.second.dexpatchVersion);
+                }
             }
         }
-        if (rollbackBundles.size() > 0) {
-            Atlas.getInstance().restoreBundle(rollbackBundles.toArray(new String[rollbackBundles.size()]));
+
+        for (UpdateInfo.Item bundle : updateInfo.updateBundles) {
+            if (!bundleNameList.contains(bundle.name) && AtlasBundleInfoManager.instance().isInternalBundle(bundle.name)) {
+                if(bundle.inherit) {
+                    bundleNameList.add(bundle.name);
+                    bundleFilePathList.add(new File("inherit"));
+                    if(!updateInfo.dexPatch){
+                        upgradeVersions.add(bundle.unitTag);
+                    }else{
+                        dexPatchVersions.add(bundle.dexpatchVersion);
+                    }
+                }else{
+                    throw new BundleException("bundle  " + bundle.name + " is error");
+                }
+            }
         }
 
-
-        saveBaselineInfo(updateInfo, realInstalledBundle);
+        String[] bundleNameArray = bundleNameList.toArray(new String[bundleNameList.size()]);
+        File[] bundleFilePathArray = bundleFilePathList.toArray(new File[bundleFilePathList.size()]);
+        String[] updateVersionArray = upgradeVersions.toArray(new String[upgradeVersions.size()]);
+        long[] dexPatchVersionArray = new long[dexPatchVersions.size()];
+        for(int x=0;x<dexPatchVersions.size();x++){
+            dexPatchVersionArray[x] = dexPatchVersions.get(x);
+        }
+        Framework.update(!updateInfo.dexPatch,bundleNameArray,bundleFilePathArray,updateVersionArray,dexPatchVersionArray,updateInfo.updateVersion,updateInfo.lowDisk);
 
     }
-
-    private void saveBaselineInfo(UpdateInfo updateData, List<String> realInstalledBundleNames) {
-        ArrayList<BaselineInfoManager.UpdateBundleInfo> updateInfos = new ArrayList<BaselineInfoManager.UpdateBundleInfo>();
-        for (UpdateInfo.Item info : updateData.updateBundles) {
-            if (realInstalledBundleNames.contains(info.name)) {
-                BaselineInfoManager.UpdateBundleInfo item = new BaselineInfoManager.UpdateBundleInfo();
-                item.name = info.name;
-                item.version = info.version;
-                item.size = 0 + "";
-                updateInfos.add(item);
-            }
-        }
-        try {
-            if(updateData.dexPatchVersion>0) {
-                BaselineInfoManager.instance().saveBaselineInfo(updateData.dexPatchVersion, updateInfos);
-            }else{
-                BaselineInfoManager.instance().saveBaselineInfo(updateData.updateVersion,updateInfos);
-            }
-        } catch (Throwable e) {
-
-        }
-    }
-
-
 }

@@ -233,25 +233,23 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.taobao.atlas.bundleInfo.AtlasBundleInfoManager;
+import android.taobao.atlas.bundleInfo.BundleListing;
 import android.taobao.atlas.framework.Atlas;
 import android.taobao.atlas.framework.BundleClassLoader;
 import android.taobao.atlas.framework.BundleImpl;
 import android.taobao.atlas.framework.Framework;
-import android.taobao.atlas.hack.AndroidHack;
 import android.taobao.atlas.hack.AtlasHacks;
-import android.taobao.atlas.util.log.impl.AtlasMonitor;
-import android.taobao.atlas.runtime.newcomponent.BundlePackageManager;
+import android.taobao.atlas.hack.Hack;
+import android.taobao.atlas.runtime.newcomponent.activity.ActivityBridge;
 import android.taobao.atlas.util.FileUtils;
 import android.taobao.atlas.util.StringUtils;
-import android.taobao.atlas.versionInfo.BaselineInfoManager;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.content.BroadcastReceiver;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -276,11 +274,14 @@ public class InstrumentationHook extends Instrumentation {
 			final IBinder token, final Activity target, final Intent intent, final int requestCode) {
 		
 		return execStartActivityInternal(who, intent, requestCode,new  ExecStartActivityCallback() {
-
 			@Override
 			public ActivityResult execStartActivity() {
-                BundlePackageManager.storeTargetBundleIfNeed(intent);
-				return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode);
+				return ActivityBridge.execStartActivity(intent,new ExecStartActivityCallback(){
+					@Override
+					public ActivityResult execStartActivity(Intent wrapperIntent) {
+						return mBase.execStartActivity(who, contextThread, token, target, wrapperIntent, requestCode);
+					}
+				});
 			}
 			
 		});
@@ -295,8 +296,12 @@ public class InstrumentationHook extends Instrumentation {
 
 			@Override
 			public ActivityResult execStartActivity() {
-                BundlePackageManager.storeTargetBundleIfNeed(intent);
-				return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode, options);
+				return ActivityBridge.execStartActivity(intent,new ExecStartActivityCallback(){
+					@Override
+					public ActivityResult execStartActivity(Intent wrapperIntent) {
+						return mBase.execStartActivity(who, contextThread, token, target, wrapperIntent, requestCode, options);
+					}
+				});
 			}
 			
 		});
@@ -311,8 +316,13 @@ public class InstrumentationHook extends Instrumentation {
 
 			@Override
 			public ActivityResult execStartActivity() {
-                BundlePackageManager.storeTargetBundleIfNeed(intent);
-				return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode);
+				return ActivityBridge.execStartActivity(intent,new ExecStartActivityCallback(){
+					@Override
+					public ActivityResult execStartActivity(Intent wrapperIntent) {
+						return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode);
+					}
+				});
+//				return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode);
 			}
 			
 		});
@@ -328,34 +338,28 @@ public class InstrumentationHook extends Instrumentation {
 
 			@Override
 			public ActivityResult execStartActivity() {
-                BundlePackageManager.storeTargetBundleIfNeed(intent);
-				return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode, options);
+				return ActivityBridge.execStartActivity(intent,new ExecStartActivityCallback(){
+					@Override
+					public ActivityResult execStartActivity(Intent wrapperIntent) {
+						return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode, options);
+					}
+				});
+				//return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode, options);
 			}
 			
 		});
 	}
 	
-	private static interface ExecStartActivityCallback {
-		public ActivityResult execStartActivity();
+	public static class ExecStartActivityCallback {
+		ActivityResult execStartActivity(){
+			return null;
+		}
+		public ActivityResult execStartActivity(Intent wrapperIntent){
+			return null;
+		}
 	}
 	
-	private ActivityResult execStartActivityInternal(final Context context, final Intent intent, final int requestCode, ExecStartActivityCallback callback) {
-        //intent.putExtra("atlas_wrapper",true);
-        /**
-         * bundle update后可能需要预处理
-         */
-		Log.e("InsturmentationHook","patch execStartActivity start");
-        if(BundlePackageManager.isNeedCheck(intent)) {
-            List<org.osgi.framework.Bundle> bundles = Atlas.getInstance().getBundles();
-            for (org.osgi.framework.Bundle bundle : bundles) {
-                if (((BundleImpl) bundle).isUpdated()) {
-                    BundlePackageManager packageManager = ((BundleImpl) bundle).getPackageManager();
-                    if (null !=packageManager && packageManager.wrapperActivityIntentIfNeed(intent) != null) {
-                        break;
-                    }
-                }
-            }
-        }
+	private ActivityResult execStartActivityInternal(final Context context, Intent intent, final int requestCode, ExecStartActivityCallback callback) {
 
         if(intent!=null){
             Atlas.getInstance().checkDownGradeToH5(intent);
@@ -363,13 +367,13 @@ public class InstrumentationHook extends Instrumentation {
 		// Get package name and component name
 		String packageName = null;
 		String componentName = null;
-		if (intent.getComponent() != null) {
-			packageName = intent.getComponent().getPackageName();
-			componentName = intent.getComponent().getClassName();
-		} else {
-			ResolveInfo resolveInfo = context.getPackageManager().resolveActivity(intent, 0);
-			if (resolveInfo != null && resolveInfo.activityInfo != null) {
-				packageName = resolveInfo.activityInfo.packageName;
+
+		ResolveInfo resolveInfo = context.getPackageManager().resolveActivity(intent, 0);
+		if (resolveInfo != null && resolveInfo.activityInfo != null) {
+			packageName = resolveInfo.activityInfo.packageName;
+			if(!TextUtils.isEmpty(resolveInfo.activityInfo.targetActivity)) {
+				componentName = resolveInfo.activityInfo.targetActivity;
+			}else{
 				componentName = resolveInfo.activityInfo.name;
 			}
 		}
@@ -399,7 +403,7 @@ public class InstrumentationHook extends Instrumentation {
 		}
 
 		String bundleName = AtlasBundleInfoManager.instance().getBundleForComponet(componentName);
-		if(!TextUtils.isEmpty(bundleName)){
+		if(!TextUtils.isEmpty(bundleName) && !Atlas.isDisableBundle(bundleName)){
 			BundleImpl impl = (BundleImpl)Atlas.getInstance().getBundle(bundleName);
 			if(impl!=null&&impl.checkValidate()) {
 				return callback.execStartActivity();
@@ -454,7 +458,6 @@ public class InstrumentationHook extends Instrumentation {
 			@Override
 			public void run() {
 				Log.e("InstrumentationHook","async startActivity");
-//				if (current == ActivityTaskMgr.getInstance().peekTopActivity() || activitySize == ActivityTaskMgr.getInstance().sizeOfActivityStack()+1) {
 					if (context instanceof Activity) {
 						callback.execStartActivity();
 						((Activity)context).overridePendingTransition(0,0);
@@ -464,11 +467,16 @@ public class InstrumentationHook extends Instrumentation {
 					}
 //				}
 
+
 				if (dialog != null && current != null && !current.isFinishing()) {
 					try {
-						if(dialog.isShowing())
+						if(dialog.isShowing()) {
 							dialog.dismiss();
-					}catch (Throwable e){}
+							ActivityTaskMgr.getInstance().sReminderDialog = null;
+						}
+					}catch (Throwable e){
+						ActivityTaskMgr.getInstance().sReminderDialog = null;
+					}
 				}
 			}
 		});
@@ -477,14 +485,17 @@ public class InstrumentationHook extends Instrumentation {
 			public void run() {
 				if (current == ActivityTaskMgr.getInstance().peekTopActivity()) {
 					fallBackToClassNotFoundCallback(context, intent, component);
-//					Toast.makeText(RuntimeVariables.androidApplication, "install error", Toast.LENGTH_SHORT).show();
 				}
 
 				if (dialog != null && current != null && !current.isFinishing()) {
 					try {
-						if(dialog.isShowing())
+						if(dialog.isShowing()) {
 							dialog.dismiss();
-					}catch(Throwable e){}
+							ActivityTaskMgr.getInstance().sReminderDialog = null;
+						}
+					}catch(Throwable e){
+						ActivityTaskMgr.getInstance().sReminderDialog = null;
+					}
 				}
 			}
 		});
@@ -502,6 +513,7 @@ public class InstrumentationHook extends Instrumentation {
 				if (dialog != null && current != null && !current.isFinishing() && !dialog.isShowing()) {
 					try {
 						dialog.show();
+						ActivityTaskMgr.getInstance().sReminderDialog = dialog;
 					} catch (Throwable e) {
 					}
 				}
@@ -550,23 +562,28 @@ public class InstrumentationHook extends Instrumentation {
         Activity activity = null;
         try{
 	        if (intent!=null && intent.getAction()!=null&& intent.getAction().equals("android.intent.action.MAIN")){
-	        	boolean needWait = Framework.getProperty("android.taobao.atlas.mainAct.wait", false);
-	        	intent.putExtra("android.taobao.atlas.mainAct.wait", needWait);
+	        	intent.putExtra("android.taobao.atlas.mainAct.wait", false);
 	        }
         }catch (Exception e){
         }
 
         try {
+			BundleListing.BundleInfo info = AtlasBundleInfoManager.instance().getBundleInfo(className);
+			if(info!=null){
+				BundleImpl impl = (BundleImpl) Atlas.getInstance().getBundle(info.getPkgName());
+				if(impl==null || !impl.checkValidate()){
+					Log.e("Instrumentation","bundleInvalid: "+info.getPkgName());
+					throw new ClassNotFoundException("bundleInvalid");
+				}
+			}
             activity = mBase.newActivity(cl, className, intent);
         } catch (ClassNotFoundException e) {
-        	String launchActivityName = Framework.getProperty("android.taobao.atlas.welcome","");
-            if(TextUtils.isEmpty(launchActivityName)) {
-                Intent launchIntentForPackage = RuntimeVariables.androidApplication.getPackageManager().getLaunchIntentForPackage(RuntimeVariables.androidApplication.getPackageName());
-                if (launchIntentForPackage != null) {
-                    ComponentName componentName = launchIntentForPackage.resolveActivity(RuntimeVariables.androidApplication.getPackageManager());
-                    launchActivityName = componentName.getClassName();
-                }
-            }
+        	String launchActivityName = "";
+			Intent launchIntentForPackage = RuntimeVariables.androidApplication.getPackageManager().getLaunchIntentForPackage(RuntimeVariables.androidApplication.getPackageName());
+			if (launchIntentForPackage != null) {
+				ComponentName componentName = launchIntentForPackage.resolveActivity(RuntimeVariables.androidApplication.getPackageManager());
+				launchActivityName = componentName.getClassName();
+			}
             if (TextUtils.isEmpty(launchActivityName)) {
                 throw e;
             }
@@ -603,15 +620,16 @@ public class InstrumentationHook extends Instrumentation {
         }
         ContextImplHook hook = new ContextImplHook(activity.getBaseContext(), activity.getClass().getClassLoader());
         if(activity.getBaseContext().getResources()!=RuntimeVariables.delegateResources){
-			if(Build.VERSION.SDK_INT<21){
-				try{
-					AtlasHacks.ContextImpl_mResources.set(activity.getBaseContext(),RuntimeVariables.delegateResources);
-				}catch(Throwable e){}
-			}
+			try{
+				AtlasHacks.ContextImpl_mResources.set(activity.getBaseContext(),RuntimeVariables.delegateResources);
+			}catch(Throwable e){}
         }
 		if(AtlasHacks.ContextThemeWrapper_mBase!=null && AtlasHacks.ContextThemeWrapper_mBase.getField()!=null){
-			//AtlasHacks.ContextThemeWrapper_mBase.on(activity).set(hook);
 			AtlasHacks.ContextThemeWrapper_mBase.set(activity,hook);
+		}
+		if (AtlasHacks.ContextThemeWrapper_mResources != null) {
+			//AtlasHacks.ContextThemeWrapper_mResources.on(activity).set(RuntimeVariables.delegateResources);
+			AtlasHacks.ContextThemeWrapper_mResources.set(activity,RuntimeVariables.delegateResources);
 		}
 		AtlasHacks.ContextWrapper_mBase.set(activity,hook);
 		String Location = null;
@@ -626,15 +644,19 @@ public class InstrumentationHook extends Instrumentation {
 				bundle.startBundle();
         }
 
-        String welcomeClassName = Framework.getProperty("android.taobao.atlas.welcome","com.taobao.tao.welcome.Welcome");
-        if(TextUtils.isEmpty(welcomeClassName)){
-            welcomeClassName = "com.taobao.tao.welcome.Welcome";
+        String launchActivityName = "";
+		Intent launchIntentForPackage = RuntimeVariables.androidApplication.getPackageManager().getLaunchIntentForPackage(RuntimeVariables.androidApplication.getPackageName());
+		if (launchIntentForPackage != null) {
+			ComponentName componentName = launchIntentForPackage.resolveActivity(RuntimeVariables.androidApplication.getPackageManager());
+			launchActivityName = componentName.getClassName();
+		}
+        if(TextUtils.isEmpty(launchActivityName)){
+			launchActivityName = "com.taobao.tao.welcome.Welcome";
         }
 		if(activity.getIntent()!=null){
 			activity.getIntent().setExtrasClassLoader(RuntimeVariables.delegateClassLoader);
 		}
-//        ensureResourcesInjected(activity);
-        if(activity.getClass().getName().equals(welcomeClassName)){
+        if(activity.getClass().getName().equals(launchActivityName)){
             mBase.callActivityOnCreate(activity, null);
         }else{
         	try{
@@ -681,10 +703,6 @@ public class InstrumentationHook extends Instrumentation {
 						}
 					}
 				}
-			}
-			if(!TextUtils.isEmpty(urlInfo) || !TextUtils.isEmpty(argInfo)){
-				AtlasMonitor.getInstance().trace(AtlasMonitor.TOO_LARGE_BUNDLE, bundleName,
-						String.format("%s|%s", urlInfo, argInfo), "120");
 			}
 		}catch(Throwable e){}
 	}
@@ -778,8 +796,6 @@ public class InstrumentationHook extends Instrumentation {
 				exceptionString += "(2.6) DelegateResources equals Activity Resources";
 			}
 			exceptionString += "(2.7) Activity Resources paths length:" + paths.size();
-			AtlasMonitor.getInstance().trace(AtlasMonitor.BUNDLE_INSTALL_FAIL, bundleName,
-					AtlasMonitor.GET_RESOURCES_FAIL_MSG, FileUtils.getDataAvailableSpace());
 		} catch (Exception e1){
 			String pathsInRunTime = " " +  DelegateResources.getCurrentAssetpathStr(RuntimeVariables.androidApplication.getAssets());
 			exceptionString = "(2.8) paths in history:" + pathsInRunTime  + " getAssetPath fail: " + e1;
@@ -1051,6 +1067,17 @@ public class InstrumentationHook extends Instrumentation {
     @Override
     public void callActivityOnDestroy(Activity activity) {
         mBase.callActivityOnDestroy(activity);
+		if(activity!=null && activity.getBaseContext() instanceof ContextImplHook){
+			try {
+				Hack.HackedMethod scheduleFinalCleanup = AtlasHacks.ContextImpl.method("scheduleFinalCleanup",String.class,String.class);
+				if(scheduleFinalCleanup.getMethod()!=null){
+					scheduleFinalCleanup.invoke(((ContextImplHook)activity.getBaseContext()).getBaseContext(),
+							activity.getClass().getName(),"Activity");
+				}
+			} catch (Throwable e) {
+				e.printStackTrace();
+			}
+		}
     }
 
     @Override

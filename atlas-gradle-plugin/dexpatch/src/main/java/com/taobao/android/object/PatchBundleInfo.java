@@ -430,6 +430,56 @@ public class PatchBundleInfo {
     private String  artifactId;
     private String baseVersion;
 
+    public int getPatchType() {
+        return patchType;
+    }
+
+    public void setPatchType(int patchType) {
+        this.patchType = patchType;
+    }
+
+    private int patchType = 0;
+
+    public boolean isInherit() {
+        return inherit;
+    }
+
+    public void setInherit(boolean inherit) {
+        this.inherit = inherit;
+    }
+
+    private boolean inherit;
+
+    public boolean isReset() {
+        return reset;
+    }
+
+    public void setReset(boolean reset) {
+        this.reset = reset;
+    }
+
+    boolean reset;
+
+    public String getUnitTag() {
+        return unitTag;
+    }
+
+    public void setUnitTag(String unitTag) {
+        this.unitTag = unitTag;
+    }
+
+    private String unitTag;
+
+    public String getSrcUnitTag() {
+        return srcUnitTag;
+    }
+
+    public void setSrcUnitTag(String srcUnitTag) {
+        this.srcUnitTag = srcUnitTag;
+    }
+
+    private String srcUnitTag;
+
     public String getBaseVersion() {
         return baseVersion;
     }

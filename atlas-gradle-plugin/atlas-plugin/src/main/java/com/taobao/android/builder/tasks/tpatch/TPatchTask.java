@@ -1,207 +1,208 @@
 /*
  *
  *
- *                                  Apache License
- *                            Version 2.0, January 2004
- *                         http://www.apache.org/licenses/
  *
- *    TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+ *                                   Apache License
+ *                             Version 2.0, January 2004
+ *                          http://www.apache.org/licenses/
  *
- *    1. Definitions.
+ *     TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
  *
- *       "License" shall mean the terms and conditions for use, reproduction,
- *       and distribution as defined by Sections 1 through 9 of this document.
+ *     1. Definitions.
  *
- *       "Licensor" shall mean the copyright owner or entity authorized by
- *       the copyright owner that is granting the License.
+ *        "License" shall mean the terms and conditions for use, reproduction,
+ *        and distribution as defined by Sections 1 through 9 of this document.
  *
- *       "Legal Entity" shall mean the union of the acting entity and all
- *       other entities that control, are controlled by, or are under common
- *       control with that entity. For the purposes of this definition,
- *       "control" means (i) the power, direct or indirect, to cause the
- *       direction or management of such entity, whether by contract or
- *       otherwise, or (ii) ownership of fifty percent (50%) or more of the
- *       outstanding shares, or (iii) beneficial ownership of such entity.
+ *        "Licensor" shall mean the copyright owner or entity authorized by
+ *        the copyright owner that is granting the License.
  *
- *       "You" (or "Your") shall mean an individual or Legal Entity
- *       exercising permissions granted by this License.
+ *        "Legal Entity" shall mean the union of the acting entity and all
+ *        other entities that control, are controlled by, or are under common
+ *        control with that entity. For the purposes of this definition,
+ *        "control" means (i) the power, direct or indirect, to cause the
+ *        direction or management of such entity, whether by contract or
+ *        otherwise, or (ii) ownership of fifty percent (50%) or more of the
+ *        outstanding shares, or (iii) beneficial ownership of such entity.
  *
- *       "Source" form shall mean the preferred form for making modifications,
- *       including but not limited to software source code, documentation
- *       source, and configuration files.
+ *        "You" (or "Your") shall mean an individual or Legal Entity
+ *        exercising permissions granted by this License.
  *
- *       "Object" form shall mean any form resulting from mechanical
- *       transformation or translation of a Source form, including but
- *       not limited to compiled object code, generated documentation,
- *       and conversions to other media types.
+ *        "Source" form shall mean the preferred form for making modifications,
+ *        including but not limited to software source code, documentation
+ *        source, and configuration files.
  *
- *       "Work" shall mean the work of authorship, whether in Source or
- *       Object form, made available under the License, as indicated by a
- *       copyright notice that is included in or attached to the work
- *       (an example is provided in the Appendix below).
+ *        "Object" form shall mean any form resulting from mechanical
+ *        transformation or translation of a Source form, including but
+ *        not limited to compiled object code, generated documentation,
+ *        and conversions to other media types.
  *
- *       "Derivative Works" shall mean any work, whether in Source or Object
- *       form, that is based on (or derived from) the Work and for which the
- *       editorial revisions, annotations, elaborations, or other modifications
- *       represent, as a whole, an original work of authorship. For the purposes
- *       of this License, Derivative Works shall not include works that remain
- *       separable from, or merely link (or bind by name) to the interfaces of,
- *       the Work and Derivative Works thereof.
+ *        "Work" shall mean the work of authorship, whether in Source or
+ *        Object form, made available under the License, as indicated by a
+ *        copyright notice that is included in or attached to the work
+ *        (an example is provided in the Appendix below).
  *
- *       "Contribution" shall mean any work of authorship, including
- *       the original version of the Work and any modifications or additions
- *       to that Work or Derivative Works thereof, that is intentionally
- *       submitted to Licensor for inclusion in the Work by the copyright owner
- *       or by an individual or Legal Entity authorized to submit on behalf of
- *       the copyright owner. For the purposes of this definition, "submitted"
- *       means any form of electronic, verbal, or written communication sent
- *       to the Licensor or its representatives, including but not limited to
- *       communication on electronic mailing lists, source code control systems,
- *       and issue tracking systems that are managed by, or on behalf of, the
- *       Licensor for the purpose of discussing and improving the Work, but
- *       excluding communication that is conspicuously marked or otherwise
- *       designated in writing by the copyright owner as "Not a Contribution."
+ *        "Derivative Works" shall mean any work, whether in Source or Object
+ *        form, that is based on (or derived from) the Work and for which the
+ *        editorial revisions, annotations, elaborations, or other modifications
+ *        represent, as a whole, an original work of authorship. For the purposes
+ *        of this License, Derivative Works shall not include works that remain
+ *        separable from, or merely link (or bind by name) to the interfaces of,
+ *        the Work and Derivative Works thereof.
  *
- *       "Contributor" shall mean Licensor and any individual or Legal Entity
- *       on behalf of whom a Contribution has been received by Licensor and
- *       subsequently incorporated within the Work.
+ *        "Contribution" shall mean any work of authorship, including
+ *        the original version of the Work and any modifications or additions
+ *        to that Work or Derivative Works thereof, that is intentionally
+ *        submitted to Licensor for inclusion in the Work by the copyright owner
+ *        or by an individual or Legal Entity authorized to submit on behalf of
+ *        the copyright owner. For the purposes of this definition, "submitted"
+ *        means any form of electronic, verbal, or written communication sent
+ *        to the Licensor or its representatives, including but not limited to
+ *        communication on electronic mailing lists, source code control systems,
+ *        and issue tracking systems that are managed by, or on behalf of, the
+ *        Licensor for the purpose of discussing and improving the Work, but
+ *        excluding communication that is conspicuously marked or otherwise
+ *        designated in writing by the copyright owner as "Not a Contribution."
  *
- *    2. Grant of Copyright License. Subject to the terms and conditions of
- *       this License, each Contributor hereby grants to You a perpetual,
- *       worldwide, non-exclusive, no-charge, royalty-free, irrevocable
- *       copyright license to reproduce, prepare Derivative Works of,
- *       publicly display, publicly perform, sublicense, and distribute the
- *       Work and such Derivative Works in Source or Object form.
+ *        "Contributor" shall mean Licensor and any individual or Legal Entity
+ *        on behalf of whom a Contribution has been received by Licensor and
+ *        subsequently incorporated within the Work.
  *
- *    3. Grant of Patent License. Subject to the terms and conditions of
- *       this License, each Contributor hereby grants to You a perpetual,
- *       worldwide, non-exclusive, no-charge, royalty-free, irrevocable
- *       (except as stated in this section) patent license to make, have made,
- *       use, offer to sell, sell, import, and otherwise transfer the Work,
- *       where such license applies only to those patent claims licensable
- *       by such Contributor that are necessarily infringed by their
- *       Contribution(s) alone or by combination of their Contribution(s)
- *       with the Work to which such Contribution(s) was submitted. If You
- *       institute patent litigation against any entity (including a
- *       cross-claim or counterclaim in a lawsuit) alleging that the Work
- *       or a Contribution incorporated within the Work constitutes direct
- *       or contributory patent infringement, then any patent licenses
- *       granted to You under this License for that Work shall terminate
- *       as of the date such litigation is filed.
+ *     2. Grant of Copyright License. Subject to the terms and conditions of
+ *        this License, each Contributor hereby grants to You a perpetual,
+ *        worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+ *        copyright license to reproduce, prepare Derivative Works of,
+ *        publicly display, publicly perform, sublicense, and distribute the
+ *        Work and such Derivative Works in Source or Object form.
  *
- *    4. Redistribution. You may reproduce and distribute copies of the
- *       Work or Derivative Works thereof in any medium, with or without
- *       modifications, and in Source or Object form, provided that You
- *       meet the following conditions:
+ *     3. Grant of Patent License. Subject to the terms and conditions of
+ *        this License, each Contributor hereby grants to You a perpetual,
+ *        worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+ *        (except as stated in this section) patent license to make, have made,
+ *        use, offer to sell, sell, import, and otherwise transfer the Work,
+ *        where such license applies only to those patent claims licensable
+ *        by such Contributor that are necessarily infringed by their
+ *        Contribution(s) alone or by combination of their Contribution(s)
+ *        with the Work to which such Contribution(s) was submitted. If You
+ *        institute patent litigation against any entity (including a
+ *        cross-claim or counterclaim in a lawsuit) alleging that the Work
+ *        or a Contribution incorporated within the Work constitutes direct
+ *        or contributory patent infringement, then any patent licenses
+ *        granted to You under this License for that Work shall terminate
+ *        as of the date such litigation is filed.
  *
- *       (a) You must give any other recipients of the Work or
- *           Derivative Works a copy of this License; and
+ *     4. Redistribution. You may reproduce and distribute copies of the
+ *        Work or Derivative Works thereof in any medium, with or without
+ *        modifications, and in Source or Object form, provided that You
+ *        meet the following conditions:
  *
- *       (b) You must cause any modified files to carry prominent notices
- *           stating that You changed the files; and
+ *        (a) You must give any other recipients of the Work or
+ *            Derivative Works a copy of this License; and
  *
- *       (c) You must retain, in the Source form of any Derivative Works
- *           that You distribute, all copyright, patent, trademark, and
- *           attribution notices from the Source form of the Work,
- *           excluding those notices that do not pertain to any part of
- *           the Derivative Works; and
+ *        (b) You must cause any modified files to carry prominent notices
+ *            stating that You changed the files; and
  *
- *       (d) If the Work includes a "NOTICE" text file as part of its
- *           distribution, then any Derivative Works that You distribute must
- *           include a readable copy of the attribution notices contained
- *           within such NOTICE file, excluding those notices that do not
- *           pertain to any part of the Derivative Works, in at least one
- *           of the following places: within a NOTICE text file distributed
- *           as part of the Derivative Works; within the Source form or
- *           documentation, if provided along with the Derivative Works; or,
- *           within a display generated by the Derivative Works, if and
- *           wherever such third-party notices normally appear. The contents
- *           of the NOTICE file are for informational purposes only and
- *           do not modify the License. You may add Your own attribution
- *           notices within Derivative Works that You distribute, alongside
- *           or as an addendum to the NOTICE text from the Work, provided
- *           that such additional attribution notices cannot be construed
- *           as modifying the License.
+ *        (c) You must retain, in the Source form of any Derivative Works
+ *            that You distribute, all copyright, patent, trademark, and
+ *            attribution notices from the Source form of the Work,
+ *            excluding those notices that do not pertain to any part of
+ *            the Derivative Works; and
  *
- *       You may add Your own copyright statement to Your modifications and
- *       may provide additional or different license terms and conditions
- *       for use, reproduction, or distribution of Your modifications, or
- *       for any such Derivative Works as a whole, provided Your use,
- *       reproduction, and distribution of the Work otherwise complies with
- *       the conditions stated in this License.
+ *        (d) If the Work includes a "NOTICE" text file as part of its
+ *            distribution, then any Derivative Works that You distribute must
+ *            include a readable copy of the attribution notices contained
+ *            within such NOTICE file, excluding those notices that do not
+ *            pertain to any part of the Derivative Works, in at least one
+ *            of the following places: within a NOTICE text file distributed
+ *            as part of the Derivative Works; within the Source form or
+ *            documentation, if provided along with the Derivative Works; or,
+ *            within a display generated by the Derivative Works, if and
+ *            wherever such third-party notices normally appear. The contents
+ *            of the NOTICE file are for informational purposes only and
+ *            do not modify the License. You may add Your own attribution
+ *            notices within Derivative Works that You distribute, alongside
+ *            or as an addendum to the NOTICE text from the Work, provided
+ *            that such additional attribution notices cannot be construed
+ *            as modifying the License.
  *
- *    5. Submission of Contributions. Unless You explicitly state otherwise,
- *       any Contribution intentionally submitted for inclusion in the Work
- *       by You to the Licensor shall be under the terms and conditions of
- *       this License, without any additional terms or conditions.
- *       Notwithstanding the above, nothing herein shall supersede or modify
- *       the terms of any separate license agreement you may have executed
- *       with Licensor regarding such Contributions.
+ *        You may add Your own copyright statement to Your modifications and
+ *        may provide additional or different license terms and conditions
+ *        for use, reproduction, or distribution of Your modifications, or
+ *        for any such Derivative Works as a whole, provided Your use,
+ *        reproduction, and distribution of the Work otherwise complies with
+ *        the conditions stated in this License.
  *
- *    6. Trademarks. This License does not grant permission to use the trade
- *       names, trademarks, service marks, or product names of the Licensor,
- *       except as required for reasonable and customary use in describing the
- *       origin of the Work and reproducing the content of the NOTICE file.
+ *     5. Submission of Contributions. Unless You explicitly state otherwise,
+ *        any Contribution intentionally submitted for inclusion in the Work
+ *        by You to the Licensor shall be under the terms and conditions of
+ *        this License, without any additional terms or conditions.
+ *        Notwithstanding the above, nothing herein shall supersede or modify
+ *        the terms of any separate license agreement you may have executed
+ *        with Licensor regarding such Contributions.
  *
- *    7. Disclaimer of Warranty. Unless required by applicable law or
- *       agreed to in writing, Licensor provides the Work (and each
- *       Contributor provides its Contributions) on an "AS IS" BASIS,
- *       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- *       implied, including, without limitation, any warranties or conditions
- *       of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
- *       PARTICULAR PURPOSE. You are solely responsible for determining the
- *       appropriateness of using or redistributing the Work and assume any
- *       risks associated with Your exercise of permissions under this License.
+ *     6. Trademarks. This License does not grant permission to use the trade
+ *        names, trademarks, service marks, or product names of the Licensor,
+ *        except as required for reasonable and customary use in describing the
+ *        origin of the Work and reproducing the content of the NOTICE file.
  *
- *    8. Limitation of Liability. In no event and under no legal theory,
- *       whether in tort (including negligence), contract, or otherwise,
- *       unless required by applicable law (such as deliberate and grossly
- *       negligent acts) or agreed to in writing, shall any Contributor be
- *       liable to You for damages, including any direct, indirect, special,
- *       incidental, or consequential damages of any character arising as a
- *       result of this License or out of the use or inability to use the
- *       Work (including but not limited to damages for loss of goodwill,
- *       work stoppage, computer failure or malfunction, or any and all
- *       other commercial damages or losses), even if such Contributor
- *       has been advised of the possibility of such damages.
+ *     7. Disclaimer of Warranty. Unless required by applicable law or
+ *        agreed to in writing, Licensor provides the Work (and each
+ *        Contributor provides its Contributions) on an "AS IS" BASIS,
+ *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ *        implied, including, without limitation, any warranties or conditions
+ *        of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+ *        PARTICULAR PURPOSE. You are solely responsible for determining the
+ *        appropriateness of using or redistributing the Work and assume any
+ *        risks associated with Your exercise of permissions under this License.
  *
- *    9. Accepting Warranty or Additional Liability. While redistributing
- *       the Work or Derivative Works thereof, You may choose to offer,
- *       and charge a fee for, acceptance of support, warranty, indemnity,
- *       or other liability obligations and/or rights consistent with this
- *       License. However, in accepting such obligations, You may act only
- *       on Your own behalf and on Your sole responsibility, not on behalf
- *       of any other Contributor, and only if You agree to indemnify,
- *       defend, and hold each Contributor harmless for any liability
- *       incurred by, or claims asserted against, such Contributor by reason
- *       of your accepting any such warranty or additional liability.
+ *     8. Limitation of Liability. In no event and under no legal theory,
+ *        whether in tort (including negligence), contract, or otherwise,
+ *        unless required by applicable law (such as deliberate and grossly
+ *        negligent acts) or agreed to in writing, shall any Contributor be
+ *        liable to You for damages, including any direct, indirect, special,
+ *        incidental, or consequential damages of any character arising as a
+ *        result of this License or out of the use or inability to use the
+ *        Work (including but not limited to damages for loss of goodwill,
+ *        work stoppage, computer failure or malfunction, or any and all
+ *        other commercial damages or losses), even if such Contributor
+ *        has been advised of the possibility of such damages.
  *
- *    END OF TERMS AND CONDITIONS
+ *     9. Accepting Warranty or Additional Liability. While redistributing
+ *        the Work or Derivative Works thereof, You may choose to offer,
+ *        and charge a fee for, acceptance of support, warranty, indemnity,
+ *        or other liability obligations and/or rights consistent with this
+ *        License. However, in accepting such obligations, You may act only
+ *        on Your own behalf and on Your sole responsibility, not on behalf
+ *        of any other Contributor, and only if You agree to indemnify,
+ *        defend, and hold each Contributor harmless for any liability
+ *        incurred by, or claims asserted against, such Contributor by reason
+ *        of your accepting any such warranty or additional liability.
  *
- *    APPENDIX: How to apply the Apache License to your work.
+ *     END OF TERMS AND CONDITIONS
  *
- *       To apply the Apache License to your work, attach the following
- *       boilerplate notice, with the fields enclosed by brackets "[]"
- *       replaced with your own identifying information. (Don't include
- *       the brackets!)  The text should be enclosed in the appropriate
- *       comment syntax for the file format. We also recommend that a
- *       file or class name and description of purpose be included on the
- *       same "printed page" as the copyright notice for easier
- *       identification within third-party archives.
+ *     APPENDIX: How to apply the Apache License to your work.
  *
- *    Copyright 2016 Alibaba Group
+ *        To apply the Apache License to your work, attach the following
+ *        boilerplate notice, with the fields enclosed by brackets "[]"
+ *        replaced with your own identifying information. (Don't include
+ *        the brackets!)  The text should be enclosed in the appropriate
+ *        comment syntax for the file format. We also recommend that a
+ *        file or class name and description of purpose be included on the
+ *        same "printed page" as the copyright notice for easier
+ *        identification within third-party archives.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ *     Copyright 2016 Alibaba Group
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *     Licensed under the Apache License, Version 2.0 (the "License");
+ *     you may not use this file except in compliance with the License.
+ *     You may obtain a copy of the License at
  *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *     Unless required by applicable law or agreed to in writing, software
+ *     distributed under the License is distributed on an "AS IS" BASIS,
+ *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *     See the License for the specific language governing permissions and
+ *     limitations under the License.
  *
  *
  */
@@ -209,6 +210,7 @@
 package com.taobao.android.builder.tasks.tpatch;
 
 import com.alibaba.fastjson.JSON;
+import com.android.build.gradle.internal.api.ApContext;
 import com.android.build.gradle.internal.api.AppVariantContext;
 import com.android.build.gradle.internal.api.AppVariantOutputContext;
 import com.android.build.gradle.internal.scope.ConventionMappingHelper;
@@ -216,34 +218,45 @@ import com.android.build.gradle.internal.tasks.BaseTask;
 import com.android.build.gradle.internal.variant.ApkVariantOutputData;
 import com.android.build.gradle.internal.variant.BaseVariantOutputData;
 import com.android.builder.signing.DefaultSigningConfig;
-import com.taobao.android.TPatchTool;
+import com.android.builder.signing.SigningException;
+import com.android.utils.Pair;
+import com.taobao.android.PatchManager;
+import com.taobao.android.PatchType;
 import com.taobao.android.builder.AtlasBuildContext;
+import com.taobao.android.builder.dependency.model.AwbBundle;
 import com.taobao.android.builder.extension.TBuildType;
 import com.taobao.android.builder.tasks.manager.MtlBaseTaskAction;
 import com.taobao.android.builder.tools.BuildHelper;
 import com.taobao.android.builder.tools.VersionUtils;
 import com.taobao.android.builder.tools.manifest.ManifestFileUtils;
-import com.taobao.android.builder.tools.update.UpdateInfo;
+import com.taobao.android.inputs.BaseInput;
+import com.taobao.android.inputs.DexPatchInput;
+import com.taobao.android.inputs.HotPatchInput;
+import com.taobao.android.inputs.TpatchInput;
 import com.taobao.android.object.ApkFileList;
 import com.taobao.android.object.ArtifactBundleInfo;
-import com.taobao.android.object.BuildPatchInfos;
-
+import com.taobao.android.tpatch.model.ApkBO;
+import com.taobao.android.tpatch.model.BundleBO;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.dom4j.DocumentException;
+import org.gradle.api.GradleException;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.OutputDirectory;
-import org.gradle.api.tasks.StopExecutionException;
 import org.gradle.api.tasks.TaskAction;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
 
+import static com.android.build.gradle.internal.api.ApContext.APK_FILE_MD5;
+
 /**
- * Andfix的patch的任务
+ * Dynamic deployment of the tpatch build task
  * Created by wuzhong
  */
 public class TPatchTask extends BaseTask {
@@ -254,6 +267,8 @@ public class TPatchTask extends BaseTask {
 
     private File outPatchFolder;
 
+    private AppVariantContext appVariantContext;
+
     @TaskAction
     public void doTPatch() throws Exception {
 
@@ -261,7 +276,12 @@ public class TPatchTask extends BaseTask {
         signingConfig = getSigningConfig();
         outPatchFolder = getOutPatchFolder();
 
-        // 获取容器版本
+        //the bundle List Copied to the outpatchFoulder
+        new File(outPatchFolder,appVariantContext.bundleListCfg.getName()).delete();
+        outPatchFolder.mkdirs();
+        FileUtils.copyFileToDirectory(appVariantContext.bundleListCfg, outPatchFolder);
+
+        // Get the container version
         String baseApkVersion = patchContext.getBaseVersionName();
         String newApkVersion = patchContext.versionName;
 
@@ -276,83 +296,148 @@ public class TPatchTask extends BaseTask {
         }
 
         getLogger().info("BaseApk:" +
-                                 baseApk +
-                                 ",baseVersion:" +
-                                 baseApkVersion +
-                                 ",newApk:" +
-                                 newApk +
-                                 ",newApkVersion:" +
-                                 newApkVersion);
+                             baseApk +
+                             ",baseVersion:" +
+                             baseApkVersion +
+                             ",newApk:" +
+                             newApk +
+                             ",newApkVersion:" +
+                             newApkVersion);
 
-        TPatchTool tPatchTool = new TPatchTool(baseApk,
-                                               newApk,
-                                               baseApkVersion,
-                                               newApkVersion,
-                                               patchContext.diffBundleDex);
+        ApkBO apkBO = new ApkBO(baseApk, baseApkVersion, baseApk.getName());
+        ApkBO newApkBO = new ApkBO(newApk, newApkVersion, newApk.getName());
+        BaseInput baseInput = createInput(apkBO,newApkBO,retainMainBundleRes);
+        PatchManager patchManager = new PatchManager(baseInput);
+        patchManager.setLogger(getILogger());
+        getLogger().info("start to do patch");
 
-        tPatchTool.setMainBundleName(patchContext.mainBundleName);
-        if (StringUtils.isNotBlank(patchContext.excludeFiles)) {
-            tPatchTool.setNotIncludeFiles(patchContext.excludeFiles.split(","));
-        }
-        tPatchTool.setRetainMainBundleRes(retainMainBundleRes);
-        if (null != patchContext.artifactBundleInfos) {
-            tPatchTool.setArtifactBundleInfos(patchContext.artifactBundleInfos);
-        }
+        patchManager.doPatch();
 
-        tPatchTool.setBaseApkFileList(patchContext.getBaseApkFiles());
-        tPatchTool.setNewApkFileList(patchContext.getNewApkFiles());
-        tPatchTool.setLogger(getILogger());
-        tPatchTool.setOnlyIncludeModifyBundle(patchContext.onlyBuildModifyAwb);
-        tPatchTool.setNoPatchBundles(patchContext.notPatchBundles);
+        getLogger().info("finish  do patch");
 
-        ApkFileList apkFileList = AtlasBuildContext.finalApkFileList;
+
+
         try {
-
-            tPatchTool.setDexcode(apkFileList.getMainBundle().get("classes.dex"));
 
             FileUtils.writeStringToFile(new File(getOutPatchFolder(), "tpatch-bundles.json"),
                                         JSON.toJSONString(patchContext.artifactBundleInfos));
 
-            getLogger().info("start to do patch");
-            tPatchTool.doPatch(outPatchFolder,
-                               true,
-                               new File(getOutPatchFolder(), "patchs.json"),
-                               true,
-                               patchContext.tpatchHistoryUrl,
-                               patchContext.appSignName);
-            getLogger().info("finish  do patch");
 
-            File patchJson = new File(getOutPatchFolder(), "patchs.json");
-            File updateJson = new File(getOutPatchFolder(), "update.json");
-            String json = FileUtils.readFileToString(patchJson);
-            BuildPatchInfos patchInfos = JSON.parseObject(json, BuildPatchInfos.class);
-            UpdateInfo updateInfo = new UpdateInfo(patchInfos);
-            FileUtils.writeStringToFile(updateJson, JSON.toJSONString(updateInfo, true));
+            FileUtils.forceDelete(patchContext.newApk);
+
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new StopExecutionException(e.getMessage());
+            throw new GradleException(e.getMessage(), e);
         }
 
+    }
+
+    private BaseInput createInput(ApkBO apkBO, ApkBO newApkBO, boolean retainMainBundleRes) throws IOException {
+        TpatchInput tpatchInput = null;
+        if (getProject().hasProperty("hotfix")){
+            tpatchInput = new HotPatchInput();
+        }else {
+             tpatchInput = new DexPatchInput();
+        }
+        tpatchInput.baseApkBo = apkBO;
+        tpatchInput.newApkBo = newApkBO;
+        tpatchInput.baseApkFileList = patchContext.getBaseApkFiles();
+        tpatchInput.newApkFileList = patchContext.getNewApkFiles(appVariantContext);
+        tpatchInput.outPatchDir = outPatchFolder;
+        tpatchInput.productName = patchContext.appSignName;
+        tpatchInput.outPutJson = new File(getOutPatchFolder(), "patchs.json");
+        tpatchInput.artifactBundleInfos = patchContext.artifactBundleInfos;
+        tpatchInput.diffBundleDex = true;
+        tpatchInput.mainBundleName = patchContext.mainBundleName;
+        tpatchInput.retainMainBundleRes = retainMainBundleRes;
+        if (StringUtils.isNotBlank(patchContext.excludeFiles)) {
+            tpatchInput.notIncludeFiles = (patchContext.excludeFiles.split(","));
+        }
+        if (apkBO.getVersionName().equals(newApkBO.getVersionName())){
+            if (tpatchInput instanceof HotPatchInput){
+                ((HotPatchInput) tpatchInput).hotClassListFile = patchContext.hotClassListFile;
+                ((HotPatchInput) tpatchInput).patchType = PatchType.HOTFIX;
+                ((HotPatchInput)tpatchInput).excludeClasses = patchContext.excludeClasses;
+
+            }else {
+                tpatchInput.patchType = PatchType.DEXPATCH;
+                ((DexPatchInput)tpatchInput).excludeClasses = patchContext.excludeClasses;
+            }
+            tpatchInput.mainBundleName = "com.taobao.maindex";
+        }else {
+            tpatchInput.patchType = PatchType.TPATCH;
+            tpatchInput.createHisPatch = true;
+            tpatchInput.bundleWhiteList = appVariantContext.bundleListCfg;
+            tpatchInput.createAll = StringUtils.isEmpty(patchContext.tpatchHistoryUrl);
+            tpatchInput.LAST_PATCH_URL = patchContext.LAST_PATCH_URL;
+            tpatchInput.hisPatchUrl = patchContext.tpatchHistoryUrl;
+            if (null != patchContext.patchVersions) {
+                tpatchInput.versionList = patchContext.patchVersions;
+            }
+        }
+        List<Pair<BundleBO, BundleBO>> remoteBundles = new ArrayList<>();
+
+        //Get the remote bundle
+        for (AwbBundle awbBundle : AtlasBuildContext.awbBundleMap.values()) {
+            if (awbBundle.isRemote) {
+
+                File bundleFile = awbBundle.outputBundleFile;
+
+                getProject().getLogger().error("add bundle compare " + bundleFile.getAbsolutePath());
+
+                BundleBO newBundleBO = new BundleBO(awbBundle.getResolvedCoordinates().getArtifactId(), bundleFile, "");
+
+                File baseBundleFile = new File(patchContext.apExplodeFolder, "remotebundles/" + bundleFile.getName());
+
+                getProject().getLogger().error("add bundle compare base : " + baseBundleFile.getAbsolutePath());
+
+                BundleBO baseBundleBO = null;
+                if (baseBundleFile.exists()) {
+
+                    getProject().getLogger().error(
+                            "add bundle compare " + baseBundleFile.getAbsolutePath() + "->" + bundleFile.getAbsolutePath());
+
+                    baseBundleBO = new BundleBO(awbBundle.getResolvedCoordinates().getArtifactId(), baseBundleFile, "");
+                }
+                remoteBundles.add(Pair.of(baseBundleBO, newBundleBO));
+            }
+        }
+
+        if (remoteBundles.size() > 0) {
+            tpatchInput.splitDiffBundle = remoteBundles;
+        }
+        return tpatchInput;
+
+    }
+
+    private void resignBaseApk(String baseApkVersion, ApkFileList apkFileList) throws IOException, SigningException {
         File baseVesrionApk = new File(patchContext.newApk.getParentFile(),
                                        patchContext.newApk.getName()
-                                               .replace(".apk", "-" + baseApkVersion + ".apk"));
+                                           .replace(".apk", "-" + baseApkVersion + ".apk"));
         FileUtils.copyFile(patchContext.getBaseApk(), baseVesrionApk);
         if (patchContext.writeBuildInfo && StringUtils.isNotEmpty(patchContext.buildId)) {
             File buildFile = new File(getOutPatchFolder(), "build.txt");
             FileUtils.writeStringToFile(buildFile,
                                         patchContext.buildId +
-                                                "," +
-                                                patchContext.versionName +
-                                                "," +
-                                                apkFileList.getMainBundle().get("classes.dex"));
+                                            "," +
+                                            patchContext.versionName +
+                                            "," +
+                                            apkFileList.getMainBundle().get("classes.dex"));
             if (buildFile != null && buildFile.exists()) {
-                getLogger().debug("write build to apk!");
+                getLogger().info("add build file to apk!");
                 BuildHelper.writeFileToApk(buildFile, baseVesrionApk, "assets/build.txt");
             }
+
+            String bundleInfoFileName = "bundleInfo-" +
+                appVariantContext.getVariantConfiguration().getVersionName() +  ".json";
+            File bundleInfoFile = new File(appVariantContext.getScope().getGlobalScope().getOutputsDir(),
+                                           bundleInfoFileName);
+            if (bundleInfoFile.exists()){
+                getLogger().info("add " + bundleInfoFileName + " to apk!");
+                BuildHelper.writeFileToApk(bundleInfoFile, baseVesrionApk, "assets/" + bundleInfoFileName);
+            }
+
             BuildHelper.reSign(baseVesrionApk, signingConfig);
         }
-
-        FileUtils.forceDelete(patchContext.newApk);
     }
 
     @OutputDirectory
@@ -381,7 +466,7 @@ public class TPatchTask extends BaseTask {
 
         @Override
         public String getName() {
-            return scope.getTaskName("Create", "TPatch");
+            return scope.getTaskName("createTPatch");
         }
 
         @Override
@@ -397,13 +482,16 @@ public class TPatchTask extends BaseTask {
             final TBuildType tBuildType = appVariantContext.getBuildType();
 
             if (null == tBuildType ||
-                    null == tBuildType.getPatchConfig() ||
-                    !tBuildType.getPatchConfig().isCreateTPatch()) {
+                null == tBuildType.getPatchConfig() ||
+                !tBuildType.getPatchConfig().isCreateTPatch()) {
                 tPatchTask.setEnabled(false);
                 return;
             }
 
-            final ApkVariantOutputData variantOutputData = (ApkVariantOutputData) scope.getVariantOutputData();
+            final ApkVariantOutputData variantOutputData = (ApkVariantOutputData)scope.getVariantOutputData();
+
+            tPatchTask.appVariantContext = appVariantContext;
+
 
             ConventionMappingHelper.map(tPatchTask, "outPatchFolder", new Callable<File>() {
 
@@ -437,29 +525,37 @@ public class TPatchTask extends BaseTask {
                     tPatchContext.outPatchFolder = appVariantOutputContext.getTPatchFolder();
                     tPatchContext.manifestFile = variantOutputData.manifestProcessorTask.getManifestOutputFile();
                     tPatchContext.apExplodeFolder = appVariantContext.apContext.getApExploredFolder();
-                    tPatchContext.versionName = VersionUtils.getVersionName((ApkVariantOutputData) baseVariantOutputData,
+                    tPatchContext.versionName = VersionUtils.getVersionName((ApkVariantOutputData)baseVariantOutputData,
                                                                             variantOutputData.manifestProcessorTask
-                                                                                    .getManifestOutputFile());
+                                                                                .getManifestOutputFile());
                     tPatchContext.tpatchHistoryUrl = tBuildType.getPatchConfig()
-                            .getTpatchHistoryUrl();
+                        .getTpatchHistoryUrl();
+                    tPatchContext.hotClassListFile = tBuildType.getPatchConfig().getHotClassListFile();
+                    tPatchContext.LAST_PATCH_URL = tBuildType.getPatchConfig().getLastPatchUrl();
                     tPatchContext.onlyBuildModifyAwb = tBuildType.getPatchConfig()
-                            .getOnlyBuildModifyAwb();
+                        .getOnlyBuildModifyAwb();
                     tPatchContext.artifactBundleInfos = appVariantOutputContext.artifactBundleInfos;
                     tPatchContext.notPatchBundles = tBuildType.getPatchConfig().getNoPatchBundles();
                     tPatchContext.mainBundleName = tBuildType.getPatchConfig()
-                            .getTpatchMainBundleName();
+                        .getTpatchMainBundleName();
                     tPatchContext.excludeFiles = tBuildType.getPatchConfig()
-                            .gettPatchNotIncludeFiles()
-                            .isEmpty() ? "" : StringUtils.join(tBuildType.getPatchConfig()
-                                                                       .gettPatchNotIncludeFiles(),
-                                                               ",");
+                        .gettPatchNotIncludeFiles()
+                        .isEmpty() ? "" : StringUtils.join(tBuildType.getPatchConfig()
+                                                               .gettPatchNotIncludeFiles(),
+                                                           ",");
 
                     tPatchContext.buildId = tBuildType.getPatchConfig().getBuildId();
                     tPatchContext.writeBuildInfo = tBuildType.getPatchConfig()
-                            .isTpatchWriteBuildInfo();
+                        .isTpatchWriteBuildInfo();
                     tPatchContext.diffBundleDex = tBuildType.getPatchConfig()
-                            .isOnlyIncrementInAwb();
+                        .isOnlyIncrementInAwb();
+                    tPatchContext.diffMainDex = tBuildType.getPatchConfig()
+                        .isOnlyIncrementInMain();
+                    tPatchContext.excludeClasses = tBuildType.getPatchConfig()
+                            .getExcludeClasses();
                     tPatchContext.appSignName = tBuildType.getPatchConfig().getAppSignName();
+
+                    tPatchContext.patchVersions = tBuildType.getPatchConfig().getPatchVersions();
 
                     return tPatchContext;
                 }
@@ -483,6 +579,8 @@ public class TPatchTask extends BaseTask {
 
         public String tpatchHistoryUrl;
 
+        public String LAST_PATCH_URL;
+
         public Boolean onlyBuildModifyAwb;
 
         public String notPatchBundles;
@@ -492,33 +590,40 @@ public class TPatchTask extends BaseTask {
         public boolean writeBuildInfo;
 
         /**
-         * 判断是否对bundle的dex文件进行diff操作
+         * Decide whether to diff the bundle's dex file
          */
         public boolean diffBundleDex;
+
+
+        public Set<String>excludeClasses;
+
+        public boolean diffMainDex;
 
         //    @Parameter(property = "android.patch.mainBundleName", defaultValue = "libcom_taobao_maindex")
         public String mainBundleName;
 
+        public List<String> patchVersions;
+
         public Set<ArtifactBundleInfo> artifactBundleInfos;
 
         /**
-         * patch需要排除的目录
+         * patchDirectories that need to be excluded
          */
         public String excludeFiles;
 
         public String appSignName;
 
-        public static final String APK_FILE_MD5 = "apk-files.txt";
+        public File hotClassListFile;
 
-        public File getNewApkFiles() throws IOException {
-            ApkFileList apkFileList = AtlasBuildContext.finalApkFileList;
+        public File getNewApkFiles(AppVariantContext appVariantContext) throws IOException {
+            ApkFileList apkFileList = appVariantContext.getApkFiles().finalApkFileList;
             File apkFiles = new File(outPatchFolder.getParentFile(), APK_FILE_MD5);
             FileUtils.writeStringToFile(apkFiles, JSON.toJSONString(apkFileList));
             return apkFiles;
         }
 
         public File getBaseApk() {
-            File apkFile = new File(apExplodeFolder, "android.apk");
+            File apkFile = new File(apExplodeFolder, ApContext.AP_INLINE_APK_FILENAME);
             return apkFile;
         }
 
